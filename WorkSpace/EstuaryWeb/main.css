@@ -1,0 +1,155 @@
+.Test{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+        /* Bố cục menu */
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            color: white;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Phần nội dung */
+        .content {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .content p {
+            margin-top: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+/* 6 row */
+.body-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao bằng toàn bộ màn hình */
+}
+
+.container-b {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    width: 80%; /* Chiều rộng của container */
+    max-width: 1000px; /* Chiều rộng tối đa */
+}
+
+.box-b {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.box-b h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.box-b p {
+    color: #666;
+}
+
+/* Small Box */
+
+    .body-container-c {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao bằng toàn bộ màn hình */
+    }
+
+    .main-box-c {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex; /* Sử dụng flexbox để bố trí */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    width: 80%; /* Chiều rộng của ô lớn */
+    max-width: 800px; /* Chiều rộng tối đa */
+    }
+
+    .text-c {
+    flex: 1; /* Đoạn văn chiếm không gian còn lại */
+    color: #333;
+    margin-right: 20px; /* Khoảng cách giữa đoạn văn và ô nhỏ */
+    }
+
+    .small-box-c {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 150px; /* Chiều rộng của ô nhỏ */
+    text-align: center; /* Căn giữa văn bản bên trong ô nhỏ */
+    }
+
+    .small-box-c h3 {
+    margin: 0;
+    font-size: 20px;
+    }
+
+    .small-box-c p {
+    color: #666;
+    font-size: 14px;
+    }
