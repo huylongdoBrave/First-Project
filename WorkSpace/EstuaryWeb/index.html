@@ -1,152 +1,78 @@
-.Test{
-    font-weight: bold;
-    font-size: 20px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuary</title>
+    <link rel="stylesheet" href="main.css"> 
+</head>
+<body>
+Load
+<div class="menu">
+    <div class="logo">
+        <img src="logo.png" alt="Logo" />
+    </div>
+    <div class="menu-options">
+        <div class="menu-option"><a href="#">Option 1</a></div>
+        <div class="menu-option"><a href="#">Option 2</a></div>
+        <div class="menu-option"><a href="#">Option 3</a></div>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="Tìm kiếm..." />
+    </div>
+</div>
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+<!-- Nội dung -->
+<div class="content">
+    <img src="" alt="Image">
+    <h3>Disruptive Solutions</h3>
+    <p>Estuary is a SalesTech company from Vietnam specializing in Sales-Enabling platforms.<br></p>
+    <p>Estuary helps multinational companies and leading local enterprises in Asia Pacific significantly enhance engagements with stakeholders across their distribution channels, acquire extra insights in real-time, and ultimately boost sales performance, as far-reaching as sell-out..</p>
+</div>
 
-        /* Bố cục menu */
-        .menu {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: black;
-        }
-        
-        .logo img {
-            height: 50px; /* Điều chỉnh kích thước logo */
-        }
-        
-        .menu-options {
-            flex-grow: 1;
-            text-align: center;
-        }
-        
-        .menu-option {
-            display: inline-block;
-            margin: 0 15px;
-        }
-        
-        .menu-option a {
-            text-decoration: none;
-            color: gray;
-            font-weight: bold;
-        }
-        
-        .search input {
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+<div class="body-container">
+    <div class="container-b">
+        <div class="box-b">
+            <h2>Ô 1</h2>
+            <p>Nội dung ô 1</p>
+        </div>
+        <div class="box-b">
+            <h2>Ô 2</h2>
+            <p>Nội dung ô 2</p>
+        </div>
+        <div class="box-b">
+            <h2>Ô 3</h2>
+            <p>Nội dung ô 3</p>
+        </div>
+        <div class="box-b">
+            <h2>Ô 4</h2>
+            <p>Nội dung ô 4</p>
+        </div>
+        <div class="box-b">
+            <h2>Ô 5</h2>
+            <p>Nội dung ô 5</p>
+        </div>
+        <div class="box-b">
+            <h2>Ô 6</h2>
+            <p>Nội dung ô 6</p>
+        </div>
+    </div>
+</div>
 
-        /* Phần nội dung */
-        .content {
-            text-align: center;
-            margin: 20px;
-        }
+<div class="body-container-c">
+    <div class="main-box-c">
+        <div class="text-c">
+            <h2>Left text</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti alias hic in minus! Non neque, rerum commodi magni tempora voluptas maxime incidunt consequuntur numquam, necessitatibus asperiores odio, laboriosam illum pariatur..</p>
+        </div>
+        <div class="small-box-c">
+            <h3>Small text</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, earum distinctio molestiae voluptates rem itaque </p>
+        </div>
+    </div>
+</div>
 
-        .content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
 
-        .content p {
-            margin-top: 15px;
-            color: #333;
-            font-size: 18px;
-        }
-
-/* 6 row */
-.body-container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-}
-
-.container-b {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; 
-    width: 80%; 
-    max-width: 1000px; 
-}
-
-.box-b {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.box-b h2 {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-}
-
-.box-b p {
-    color: #666;
-}
-
-/* Small Box */
-
-    .body-container-c {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    height: 100vh; 
-    }
-
-    .main-box-c {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex; /* Sử dụng flexbox để bố trí */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    width: 80%; /* Chiều rộng của ô lớn */
-    max-width: 800px; /* Chiều rộng tối đa */
-    }
-
-    .text-c {
-    flex: 1; /* Đoạn văn chiếm không gian còn lại */
-    color: #333;
-    margin-right: 20px; /* Khoảng cách giữa đoạn văn và ô nhỏ */
-    }
-
-    .small-box-c {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 150px; /* Chiều rộng của ô nhỏ */
-    text-align: center; /* Căn giữa văn bản bên trong ô nhỏ */
-    }
-
-    .small-box-c h3 {
-    margin: 0;
-    font-size: 20px;
-    }
-
-    .small-box-c p {
-    color: #666;
-    font-size: 14px;
-    }
+<script src="./main.js"></script>
+</body>
+</html>
