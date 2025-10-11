@@ -1,0 +1,354 @@
+main.css
+.Test{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* main layout */
+.menu-frame{
+    margin:0;
+    padding: 0;
+}
+
+.container {
+    width: 100%; /* Chiều rộng của container */
+    margin-bottom: 50px;
+    height: auto; /* Chiều cao toàn bộ viewport */
+    display: flex;
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+}
+
+.content {
+    text-align: center; /* Canh giữa nội dung bên trong */
+}
+
+/* Bố cục menu */
+.menu {
+    display: flex;
+    justify-content: space-between; /* Căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: #333;
+    padding: 10px 20px; /* Padding cho menu */
+    margin: -10px;
+    color: white;
+}
+.space-li{
+    padding-left: 100px;
+}
+.menu .icon {
+    font-size: 24px; /* Kích thước icon */
+    margin-right: 20px; /* Khoảng cách giữa icon và tùy chọn */
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 15px; /* Khoảng cách giữa các tùy chọn */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.search-container input {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-left: 15px; /* Khoảng cách giữa icon và ô tìm kiếm */
+}
+
+/* Phần nội dung */
+.container-banner{
+    font-family: Arial, sans-serif; 
+    margin-top: 20px;
+    display: flex;
+    height: 50vh;
+}
+
+.content-text{
+    float:left;
+    padding-left: 80px;
+}
+
+.column-left {
+    flex: 2; /* Cột trái chiếm 2 phần */
+    padding: 10px; /* Padding cho cột */
+    background-color: #e0e7ff; /* Màu nền cột trái */
+    height: 100%; /* Đảm bảo chiều cao cột trái bằng chiều cao màn hình */
+}
+
+.column-right {
+    flex: 1; /* Cột phải chiếm 1 phần */
+    padding: 10px; /* Padding cho cột */
+    background-color: #cbd5e1; /* Màu nền cột phải */
+    height: 100%; /* Đảm bảo chiều cao cột phải bằng chiều cao màn hình */
+}
+
+/* 6 row */
+
+    /* .body-container {
+        font-family: Arial, sans-serif;
+        margin: 50px 0px 50px 0px;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        height: 80vh; 
+    }
+
+    .container-b {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px; 
+        width: 80%; 
+        max-width: 1000px; 
+    }
+
+    .box-b {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .box-b h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .box-b p {
+        color: #666;
+    } */
+
+/* Nội dung 6 ô */
+.container-content-a {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap; /* Cho phép các ô nằm trên nhiều hàng */
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            align-items: flex-start; /* Căn phía trên cùng */
+            background-color: #f4f4f4; /* Màu nền */
+            margin: 20px;
+            padding: 20px; /* Padding cho body */
+        }
+
+        .content-box-a {
+            background-color: white; /* Màu nền của ô */
+            border-radius: 8px; /* Bo góc cho ô */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho ô */
+            width: calc(30% - 40px); /* Chiều rộng của ô (3 ô trên 1 hàng) */
+            margin: 10px; /* Khoảng cách giữa các ô */
+            padding: 20px; /* Padding cho ô */
+        }
+
+        .title-a {
+            color: #add8e6; /* Màu xanh dương nhạt */
+            font-size: 24px; /* Kích thước chữ tiêu đề */
+            margin: 0; /* Bỏ margin */
+        }
+
+        .divider-a {
+            height: 2px; /* Độ dày của đường kẻ */
+            background-color: #ccc; /* Màu sắc đường kẻ */
+            margin: 10px 0; /* Khoảng cách trên và dưới đường kẻ */
+            width: 90%; /* Chiều rộng của đường kẻ */
+            align-self: center; /* Căn giữa đường kẻ */
+        }
+
+        .text-a {
+            margin: 15px 0; /* Khoảng cách trên và dưới đoạn văn */
+            font-size: 16px; /* Kích thước chữ đoạn văn */
+        }
+
+        .image-a {
+            width: auto; /* Chiều rộng hình ảnh */
+            border-radius: 8px; /* Bo góc cho hình ảnh */
+             /* Khoảng cách trên và dưới hình ảnh */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .view-box-a {
+            display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+            justify-content: space-between; /* Căn giữa nội dung trong ô */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            background-color: #d4edda; /* Màu xanh lá nhạt */
+            padding: 10px 15px; /* Padding cho ô box */
+            border-radius: 5px; /* Bo góc cho ô box */
+            cursor: pointer; /* Thay đổi con trỏ khi hover */
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+        }
+
+        .view-box-a:hover  {
+            background-color: white; /* Chuyển sang màu trắng khi hover */
+        }
+
+        .arrow-a {
+            margin-left: 10px; /* Khoảng cách bên trái cho mũi tên */
+        }
+
+/* Small Box */
+
+.body-container-c {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 20px;
+
+display: flex;
+justify-content: center; /* Căn giữa nội dung */
+align-items: center; /* Căn giữa theo chiều dọc */
+    /* Chiều cao bằng toàn bộ màn hình */
+}
+
+.main-box-c {
+background-color: #ffffff;
+border-radius: 8px;
+padding: 20px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+display: flex; /* Sử dụng flexbox để bố trí */
+align-items: center; /* Căn giữa theo chiều dọc */
+width: 80%; /* Chiều rộng của ô lớn */
+max-width: 800px; /* Chiều rộng tối đa */
+}
+
+.text-c {
+    
+flex: 1; /* Đoạn văn chiếm không gian còn lại */
+color: #333;
+margin-right: 20px; /* Khoảng cách giữa đoạn văn và ô nhỏ */
+}
+
+.small-box-c {
+background-color: #ffffff;
+border-radius: 8px;
+padding: 20px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+width: 150px; /* Chiều rộng của ô nhỏ */
+text-align: center; /* Căn giữa văn bản bên trong ô nhỏ */
+}
+
+.small-box-c h3 {
+margin: 0;
+font-size: 20px;
+}
+
+.small-box-c p {
+color: #666;
+font-size: 14px;
+}
+
+/* slider */
+.custom-body-slider {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    padding: 0;
+    
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100  vh; /* Chiều cao bằng toàn bộ màn hình */
+}
+
+.slider {
+    position: relative;
+    width: 80%; /* Chiều rộng của slider */
+    max-width: 600px; /* Chiều rộng tối đa */
+    overflow: hidden; /* Ẩn nội dung tràn */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+    display: flex; /* Sử dụng flexbox để bố trí các khung */
+    transition: transform 0.5s ease; /* Hiệu ứng chuyển động */
+}
+
+.slide {
+    min-width: 100%; /* Chiều rộng mỗi khung */
+    box-sizing: border-box; /* Bao gồm padding và border */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+/* end footer */
+.custom-body-d {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.footer-d {
+    display: flex; /* Sử dụng flexbox để bố trí cột */
+    justify-content: center; /* Căn giữa các cột */
+    align-items: flex-start; /* Căn theo chiều dọc */
+    background-color: #333; /* Màu nền footer */
+    color: white; /* Màu chữ */
+    padding: 20px; /* Padding cho footer */
+}
+
+.column-d {
+    margin: 0 80px 50px; /* Khoảng cách giữa các cột */
+    text-align: left; /* Căn trái cho nội dung cột */
+}
+
+.column-d h3 {
+    font-weight: bold; /* Định dạng tiêu đề in đậm */
+    margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+}
+
+.column-d ul {
+    list-style-type: disc; /* Dấu chấm đầu dòng */
+    padding-left: 20px; /* Khoảng cách bên trái cho dấu chấm */
+    padding-bottom: 10px;
+    margin: 0; /* Bỏ margin */
+}
+
+.column-d li {
+    padding-bottom: 10px;
+    margin: 0; /* Bỏ margin */
+}
+
+.logo-d {
+    margin-top: 10px; /* Khoảng cách trên logo */
+    width: 100px; /* Chiều rộng logo */
+}
