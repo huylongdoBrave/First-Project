@@ -4,18 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Estuary</title>
+
+<!-- Link -->
 <link rel="stylesheet" href="main.css" />
-<link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -25,49 +25,66 @@
     </div>
 </div> -->
 
-<div class="menu-frame">
-    <div class="menu">
-    <div class="icon">🔍</div>
-    <!-- Icon ở góc trái -->
-    <div class="space-li">
-    <ul >
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Our solutions</a></li>
-        <li><a href="#">News</a></li>
-    </ul>    
+<!-- Menu -->
+
+
+<nav class="navbar-menu container-menu">
+    <a class="logo estuary-solutions" href="/">
+        <img src="static/img/logo_es.png" alt="Estuary Solutions Logo">
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </div>
-    <div class="search-container">
-        <span class="icon">🔍</span>
-        <!-- Icon ở góc phải -->
-        <input type="text" placeholder="Tìm kiếm..." />
+    <div class="menu" id="menu">
+
+            <a href="#option1">About us</a>
+            <a href="#option2">Our solutions</a>
+            <a href="#option3">News</a>
+ 
+        <div class="search-container-menu">
+            <input type="text" placeholder="Search  ">
+            <span class="search-icon-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.397l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.742.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                </svg>
+            </span>
+        </div>
     </div>
-    </div>
-</div>
+    
+</nav>
 
 <!-- Nội dung Banner -->
 
-<div class="container-banner">
+
+<div class="container-banner" id="option1">
     <div class="column-left">
         <div class="content-text">
-            <h2>Disruptive Solutions</h2>
-        <p>Estuary is a SalesTech company from Vietnam specializing in Sales-Enabling platforms.</p>
+        <h2>Disruptive Solutions</h2>
+        <p>Estuary is a <span style="color: #29abe2;font-weight: bold;">SalesTech </span>company from Vietnam specializing in Sales-Enabling platforms.</p>
         <p>Estuary helps multinational companies and leading local enterprises in Asia Pacific significantly enhance engagements with stakeholders across their distribution channels, acquire extra insights in real-time, and ultimately boost sales performance, as far-reaching as sell-out.</p>
+        </div>
     </div>
-    </div>
+    <div class="column-middle"></div>
     <div class="column-right">
-        <img  src="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png" alt="Placeholder Image">
+        <img class="img-banner"  src="static/img/Banner_es.PNG" alt="Placeholder Image">
     </div>
 </div>
 
 
+
 <!-- Giải pháp 6 ô -->
- <div class="container-content-a">
+
+    <h2 style="color: #29abe2;margin-left: 150px; font-size: 26px;">Our Solutions</h2><br>
+ <div class="container-content-a" id="option2">
     <div class="content-box-a">
         <h2 class="title-a">Tiêu Đề 2</h2>
         <div class="divider-a"></div>
         <p class="text-a">A software solution that helps maximize sales performance by empowering sales teams with digital tools (e.g. e-detailing, automatic sales route allocation, etc.) to discover, recruit, service, and manage customers on top of the traditional approaches.</p>
         <p class="text-a">Through SaleX, sales managers and decision makers are empowered with real-time data and automated tools (e.g. performance alert, etc.) to effectively manage and direct their sales team.</p>
-        <img class="image-a" src="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png" alt="Placeholder Image"> 
+        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/72563390-ca5b-4376-939f-d8584e16041f/5GX2SsbpKm.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
         <div class="view-box-a">
             <span>Xem</span>
             <span class="arrow-a">&#8594;</span>
@@ -78,7 +95,16 @@
         <h2 class="title-a">Tiêu Đề 2</h2>
         <div class="divider-a"></div>
         <p class="text-a">Đây là một đoạn văn mô tả nội dung trong ô 1.</p>
-        <img class="image-a" src="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png" alt="Placeholder Image"> 
+        <script
+        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js"
+        type="module"
+        ></script>
+        <dotlottie-wc
+        src="https://lottie.host/9be95e0c-3598-47d2-9ff5-fc5aebcf2279/cn2g0DuMsn.lottie"
+        style="width: 300px;height: 300px"
+        autoplay
+        loop
+        ></dotlottie-wc>
         <div class="view-box-a">
             <span>Xem</span>
             <span class="arrow-a">&#8594;</span> 
@@ -86,7 +112,7 @@
     </div>
 
     <div class="content-box-a">
-        <h2 class="title-a">Tiêu Đề 3</h2>
+        <h2 class="title-a">Tiêu Đề 2</h2>
         <div class="divider-a"></div>
         <p class="text-a">Đây là một đoạn văn mô tả nội dung trong ô 1.</p>
         <img class="image-a" src="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png" alt="Placeholder Image"> 
@@ -128,8 +154,8 @@
             <span class="arrow-a">&#8594;</span> 
         </div>
     </div>
-
  </div>
+
 
 
 <!-- Ô text nhỏ -->
@@ -216,6 +242,7 @@
     </div>
     </div>
 </footer>
+
 
 <script src="./main.js"></script>
 </body>

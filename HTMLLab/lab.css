@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Xếp các ô theo chiều dọc */
+    height: 100vh; /* Chiều cao toàn bộ viewport */
+}
+
+.box {
+    flex: 1; /* Mỗi ô chiếm 50% chiều cao */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white; /* Màu chữ trắng */
+}
+
+/* Gradient background */
+.box1 {
+    background: linear-gradient(to bottom, white, lightblue); /* Từ trắng sang xanh nhạt */
+}
+
+.box2 {
+    background: lightblue; /* Màu nền xanh nhạt cho ô thứ hai */
+}

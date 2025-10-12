@@ -24,185 +24,231 @@ main.css
 }
 
 /* Bố cục menu */
-.menu {
-    display: flex;
-    justify-content: space-between; /* Căn giữa nội dung */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    background-color: #333;
-    padding: 10px 20px; /* Padding cho menu */
-    margin: -10px;
-    color: white;
-}
-.space-li{
-    padding-left: 100px;
-}
-.menu .icon {
-    font-size: 24px; /* Kích thước icon */
-    margin-right: 20px; /* Khoảng cách giữa icon và tùy chọn */
-}
 
-.menu ul {
-    display: flex;
-    list-style-type: none; /* Bỏ dấu chấm đầu dòng */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.menu li {
-    margin: 0 15px; /* Khoảng cách giữa các tùy chọn */
+.navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
+.logo-menu {
+    font-size: 24px;
     font-weight: bold;
 }
 
-.search-container {
+.menu {
     display: flex;
-    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 20px;
+    margin-right: 100px;
 }
 
-.search-container input {
-    padding: 5px;
+.menu a {
+    text-decoration: none;
+    color: lightblue; 
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.menu a::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px; /* Độ dày của đường kẻ */
+    background-color: lightblue; /* Màu của đường kẻ */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Khoảng cách từ chữ đến đường kẻ */
+    transform: scaleX(0); /* Ẩn đường kẻ ban đầu */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+.menu a:hover {
+    /* transform: scaleX(1); */
+    transform: translateY(-3px); /* Đẩy chữ lên 1 chút khi hover */
+    border-bottom: 3px solid lightblue; /* Đường kẻ nằm dưới chữ */
+    bottom: -20px;
+}
+
+.search-container-menu {
+    margin-left: 30px;
+    position: relative; /* Để định vị icon bên trong input */
+}
+
+.search-container-menu input {
+    padding: 5px 30px; /* Thêm padding bên trái để có chỗ cho icon */
+    border: 1px solid lightgray;
     border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-left: 15px; /* Khoảng cách giữa icon và ô tìm kiếm */
+    width: 200px; /* Kích thước ô input */
+}
+
+.search-icon-menu {
+    position: absolute; /* Định vị icon kính lúp */
+    left: 10px; /* Khoảng cách từ bên trái */
+    top: 50%; /* Đặt ở giữa theo chiều dọc */
+    transform: translateY(-50%); /* Căn giữa icon */
+    pointer-events: none; /* Không cho phép tương tác với icon */
+}
+
+.menu-toggle {
+    display: none; /* Ẩn menu toggle trên màn hình lớn */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: black;
+    margin: 3px 0;
+}
+
+
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Ẩn menu trên màn hình nhỏ */
+        flex-direction: column; /* cho menu theo chiều dọc */
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Đặt menu dưới navbar */
+        left: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    .menu.active {
+        display: flex; /* Hiện menu khi active */
+    }
+
+    .menu-toggle {
+        display: flex; /* Hiện menu toggle trên màn hình nhỏ */
+    }
+
+    .search-container-menu {
+        margin-top: 10px; /* Thêm khoảng cách cho ô tìm kiếm trên màn hình nhỏ */
+    }
 }
 
 /* Phần nội dung */
 .container-banner{
-    font-family: Arial, sans-serif; 
-    margin-top: 20px;
+    /* font-family: Arial, sans-serif;  */
+    font-family: "IBM Plex Sans", sans-serif;
+   
+    margin-bottom: 50px;
     display: flex;
-    height: 50vh;
+    font-size: 19px;
 }
 
 .content-text{
     float:left;
-    padding-left: 80px;
+    padding-left: 150px;
+    padding-top: 30px;
+}
+.column-middle{
+    flex: 1;
+    height: 100%;
 }
 
 .column-left {
-    flex: 2; /* Cột trái chiếm 2 phần */
-    padding: 10px; /* Padding cho cột */
-    background-color: #e0e7ff; /* Màu nền cột trái */
+    flex: 3; /* Cột trái chiếm 2 phần */
+    padding-top: 30px;
     height: 100%; /* Đảm bảo chiều cao cột trái bằng chiều cao màn hình */
 }
 
 .column-right {
-    flex: 1; /* Cột phải chiếm 1 phần */
-    padding: 10px; /* Padding cho cột */
-    background-color: #cbd5e1; /* Màu nền cột phải */
+    flex: 2; /* Cột phải chiếm 1 phần */
+    padding: 0px; /* Padding cho cột */
     height: 100%; /* Đảm bảo chiều cao cột phải bằng chiều cao màn hình */
 }
 
-/* 6 row */
-
-    /* .body-container {
-        font-family: Arial, sans-serif;
-        margin: 50px 0px 50px 0px;
-        padding: 0;
-        background-color: #f4f4f4;
-        display: flex;
-        justify-content: center; 
-        align-items: center; 
-        height: 80vh; 
-    }
-
-    .container-b {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 20px; 
-        width: 80%; 
-        max-width: 1000px; 
-    }
-
-    .box-b {
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .box-b h2 {
-        margin: 0;
-        font-size: 24px;
-        color: #333;
-    }
-
-    .box-b p {
-        color: #666;
-    } */
+.img-banner {
+    height: 500px;
+    float: right;
+}
 
 /* Nội dung 6 ô */
 .container-content-a {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-wrap: wrap; /* Cho phép các ô nằm trên nhiều hàng */
-            justify-content: center; /* Căn giữa theo chiều ngang */
-            align-items: flex-start; /* Căn phía trên cùng */
-            background-color: #f4f4f4; /* Màu nền */
-            margin: 20px;
-            padding: 20px; /* Padding cho body */
-        }
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các ô nằm trên nhiều hàng */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: flex-start; /* Căn phía trên cùng */
+    background: linear-gradient(to bottom, white, lightblue);
+}
 
-        .content-box-a {
-            background-color: white; /* Màu nền của ô */
-            border-radius: 8px; /* Bo góc cho ô */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho ô */
-            width: calc(30% - 40px); /* Chiều rộng của ô (3 ô trên 1 hàng) */
-            margin: 10px; /* Khoảng cách giữa các ô */
-            padding: 20px; /* Padding cho ô */
-        }
+.container-surround-a{
+    margin: 20px;
+    padding: 20px;
+}
 
-        .title-a {
-            color: #add8e6; /* Màu xanh dương nhạt */
-            font-size: 24px; /* Kích thước chữ tiêu đề */
-            margin: 0; /* Bỏ margin */
-        }
+.content-box-a {
+    background-color: white; /* Màu nền của ô */
+    border-radius: 8px; /* Bo góc cho ô */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho ô */
+    width: calc(30% - 90px); /* Chiều rộng của ô (3 ô trên 1 hàng) */
+    margin: 10px; /* Khoảng cách giữa các ô */
+    padding: 10px; /* Padding cho ô */
+   
+}
 
-        .divider-a {
-            height: 2px; /* Độ dày của đường kẻ */
-            background-color: #ccc; /* Màu sắc đường kẻ */
-            margin: 10px 0; /* Khoảng cách trên và dưới đường kẻ */
-            width: 90%; /* Chiều rộng của đường kẻ */
-            align-self: center; /* Căn giữa đường kẻ */
-        }
+.title-a {
+    color: #add8e6; /* Màu xanh dương nhạt */
+    font-size: 24px; /* Kích thước chữ tiêu đề */
+    margin-left: 15px;
+    margin-top: 20px;
+}
 
-        .text-a {
-            margin: 15px 0; /* Khoảng cách trên và dưới đoạn văn */
-            font-size: 16px; /* Kích thước chữ đoạn văn */
-        }
+.divider-a {
+    height: 2px; /* Độ dày của đường kẻ */
+    background-color: #ccc; /* Màu sắc đường kẻ */
+    margin: 10px 0 10px 15px; /* Khoảng cách trên và dưới đường kẻ */
+    width: 90%; /* Chiều rộng của đường kẻ */
+    align-self: center; /* Căn giữa đường kẻ */
+}
 
-        .image-a {
-            width: auto; /* Chiều rộng hình ảnh */
-            border-radius: 8px; /* Bo góc cho hình ảnh */
-             /* Khoảng cách trên và dưới hình ảnh */
-            display: flex;
-            justify-content: space-between;
-        }
+.text-a {
+    margin: 20px 10px 20px 15px; /* Khoảng cách trên và dưới đoạn văn */
+    font-size: 16px; /* Kích thước chữ đoạn văn */
+}
 
-        .view-box-a {
-            display: flex; /* Sử dụng flexbox để căn giữa nội dung */
-            justify-content: space-between; /* Căn giữa nội dung trong ô */
-            align-items: center; /* Căn giữa theo chiều dọc */
-            background-color: #d4edda; /* Màu xanh lá nhạt */
-            padding: 10px 15px; /* Padding cho ô box */
-            border-radius: 5px; /* Bo góc cho ô box */
-            cursor: pointer; /* Thay đổi con trỏ khi hover */
-            transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
-        }
+.image-a {
+    padding: 20px;
+    width: 100%; /* Chiều rộng hình ảnh */
+    border-radius: 8px; /* Bo góc cho hình ảnh */
+    display: block;
+    justify-content: space-between;
+}
 
-        .view-box-a:hover  {
-            background-color: white; /* Chuyển sang màu trắng khi hover */
-        }
+.view-box-a {
+    display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+    justify-content: space-between; /* Căn giữa nội dung trong ô */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background-color: #d4edda; /* Màu xanh lá nhạt */
+    padding: 10px 15px; /* Padding cho ô box */
+    border-radius: 5px; /* Bo góc cho ô box */
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+}
 
-        .arrow-a {
-            margin-left: 10px; /* Khoảng cách bên trái cho mũi tên */
-        }
+.view-box-a:hover  {
+    background-color: white; /* Chuyển sang màu trắng khi hover */
+}
+
+.arrow-a {
+    margin-left: 10px; /* Khoảng cách bên trái cho mũi tên */
+}
 
 /* Small Box */
 
@@ -229,7 +275,6 @@ max-width: 800px; /* Chiều rộng tối đa */
 }
 
 .text-c {
-    
 flex: 1; /* Đoạn văn chiếm không gian còn lại */
 color: #333;
 margin-right: 20px; /* Khoảng cách giữa đoạn văn và ô nhỏ */
