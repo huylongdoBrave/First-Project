@@ -1,28 +1,110 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-.container {
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
     display: flex;
-    flex-direction: column; /* Xếp các ô theo chiều dọc */
-    height: 100vh; /* Chiều cao toàn bộ viewport */
+    transition: transform 0.5s ease;
 }
 
-.box {
-    flex: 1; /* Mỗi ô chiếm 50% chiều cao */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    color: white; /* Màu chữ trắng */
+.carousel-slide {
+    min-width: 33.33%; /* 3 cột */
+    width: 300px;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
 }
 
-/* Gradient background */
-.box1 {
-    background: linear-gradient(to bottom, white, lightblue); /* Từ trắng sang xanh nhạt */
+.carousel-text1{
+    color: #3bb2e4;
+    float: right;
+    padding-right: 20px;
 }
 
-.box2 {
-    background: lightblue; /* Màu nền xanh nhạt cho ô thứ hai */
+.carousel-text2{
+    font-weight: bold;
+    color: #129dd8;
+    text-align: left;
+    margin-left:20px;
+}
+
+.carousel-text3{
+    text-align: left;
+    margin-left:20px;
+}
+
+.carousel-slide img {
+    width: 350px;
+    height: 150px; 
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide img:hover {
+    transform: scale(1.1); 
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: lightblue;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+
+.carousel-arrow.left {
+    left: 10px;
+}
+
+.carousel-arrow.right {
+    right: 10px;
+}
+
+.dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: lightblue;
+}
+
+@media (min-width: 768px) {
+    .carousel-slide {
+        min-width: 33.33%; /* 3 cột */
+    }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+    .carousel-slide {
+        min-width: 50%; /* 2 cột */
+    }
+}
+
+@media (max-width: 479px) {
+    .carousel-slide {
+        min-width: 100%; /* 1 cột */
+    }
 }
