@@ -45,6 +45,7 @@ body {
 .logo-menu {
     font-size: 24px;
     font-weight: bold;
+    margin-left: 100px;
 }
 
 .menu {
@@ -197,10 +198,10 @@ body {
     background-color: white; /* Màu nền của ô */
     border-radius: 8px; /* Bo góc cho ô */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho ô */
-    width: calc(30% - 90px); /* Chiều rộng của ô (3 ô trên 1 hàng) */
-    margin: 10px; /* Khoảng cách giữa các ô */
+    width: calc(30% - 100px); /* Chiều rộng của ô (3 ô trên 1 hàng) */
+    margin: 20px; /* Khoảng cách giữa các ô */
     padding: 10px; /* Padding cho ô */
-   
+    height: 700px;
 }
 
 .title-a {
@@ -225,25 +226,30 @@ body {
 
 .image-a {
     padding: 20px;
+    margin-left: 40px;
     width: 100%; /* Chiều rộng hình ảnh */
     border-radius: 8px; /* Bo góc cho hình ảnh */
     display: block;
     justify-content: space-between;
+    height: auto;
+    align-items: center;
 }
 
 .view-box-a {
     display: flex; /* Sử dụng flexbox để căn giữa nội dung */
     justify-content: space-between; /* Căn giữa nội dung trong ô */
     align-items: center; /* Căn giữa theo chiều dọc */
-    background-color: #d4edda; /* Màu xanh lá nhạt */
+    background-color: #2596be; 
     padding: 10px 15px; /* Padding cho ô box */
     border-radius: 5px; /* Bo góc cho ô box */
     cursor: pointer; /* Thay đổi con trỏ khi hover */
     transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+    color: white;
 }
 
 .view-box-a:hover  {
     background-color: white; /* Chuyển sang màu trắng khi hover */
+    color: black;
 }
 
 .arrow-a {
@@ -253,14 +259,13 @@ body {
 /* Small Box */
 
 .body-container-c {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 20px;
-
-display: flex;
-justify-content: center; /* Căn giữa nội dung */
-align-items: center; /* Căn giữa theo chiều dọc */
-    /* Chiều cao bằng toàn bộ màn hình */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 100px;
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    background: linear-gradient(to bottom, lightblue, white);
 }
 
 .main-box-c {
@@ -271,7 +276,8 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 display: flex; /* Sử dụng flexbox để bố trí */
 align-items: center; /* Căn giữa theo chiều dọc */
 width: 80%; /* Chiều rộng của ô lớn */
-max-width: 800px; /* Chiều rộng tối đa */
+max-width: 700px; /* Chiều rộng tối đa */
+height: 100px;
 }
 
 .text-c {
@@ -287,6 +293,7 @@ padding: 20px;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 width: 150px; /* Chiều rộng của ô nhỏ */
 text-align: center; /* Căn giữa văn bản bên trong ô nhỏ */
+font-size: 20px;
 }
 
 .small-box-c h3 {
@@ -300,34 +307,142 @@ font-size: 14px;
 }
 
 /* slider */
-.custom-body-slider {
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 33.33%; /* 3 cột */
+    width: 300px;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+}
+
+.carousel-text1{
+    color: #3bb2e4;
+    float: right;
+    padding-right: 20px;
+}
+
+.carousel-text2{
+    font-weight: bold;
+    color: #129dd8;
+    text-align: left;
+    margin-left:20px;
+}
+
+.carousel-text3{
+    text-align: left;
+    margin-left:20px;
+}
+
+.carousel-readmore{
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 350px;
+    height: 150px; 
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide img:hover {
+    transform: scale(1.1); 
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: lightblue;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-arrow.left {
+    left: 10px;
+}
+
+.carousel-arrow.right {
+    right: 10px;
+}
+
+.dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: lightblue;
+}
+
+@media (min-width: 768px) {
+    .carousel-slide {
+        min-width: 33.33%; /* 3 cột */
+    }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+    .carousel-slide {
+        min-width: 50%; /* 2 cột */
+    }
+}
+
+@media (max-width: 479px) {
+    .carousel-slide {
+        min-width: 100%; /* 1 cột */
+    }
+}
+
+/* .custom-body-slider {
     font-family: Arial, sans-serif;
     margin: 50px;
     padding: 0;
     
     display: flex;
-    justify-content: center; /* Căn giữa nội dung */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    height: 100  vh; /* Chiều cao bằng toàn bộ màn hình */
+    justify-content: center;
+    align-items: center;
+    height: 100  vh; 
 }
 
 .slider {
     position: relative;
-    width: 80%; /* Chiều rộng của slider */
-    max-width: 600px; /* Chiều rộng tối đa */
-    overflow: hidden; /* Ẩn nội dung tràn */
+    width: 80%; 
+    max-width: 600px; 
+    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .slides {
-    display: flex; /* Sử dụng flexbox để bố trí các khung */
-    transition: transform 0.5s ease; /* Hiệu ứng chuyển động */
+    display: flex; 
+    transition: transform 0.5s ease; 
 }
 
 .slide {
-    min-width: 100%; /* Chiều rộng mỗi khung */
-    box-sizing: border-box; /* Bao gồm padding và border */
+    min-width: 100%; 
+    box-sizing: border-box; 
     padding: 20px;
     background-color: white;
     border-radius: 8px;
@@ -352,7 +467,7 @@ font-size: 14px;
 
 .arrow-right {
     right: 10px;
-}
+} */
 
 /* end footer */
 .custom-body-d {
@@ -366,7 +481,7 @@ font-size: 14px;
     display: flex; /* Sử dụng flexbox để bố trí cột */
     justify-content: center; /* Căn giữa các cột */
     align-items: flex-start; /* Căn theo chiều dọc */
-    background-color: #333; /* Màu nền footer */
+    background-color: #44b5e5; 
     color: white; /* Màu chữ */
     padding: 20px; /* Padding cho footer */
 }
@@ -382,18 +497,18 @@ font-size: 14px;
 }
 
 .column-d ul {
-    list-style-type: disc; /* Dấu chấm đầu dòng */
-    padding-left: 20px; /* Khoảng cách bên trái cho dấu chấm */
+    list-style-type: disc; 
+    padding-left: 20px; 
     padding-bottom: 10px;
-    margin: 0; /* Bỏ margin */
+    margin-bottom: 20px; 
 }
 
 .column-d li {
     padding-bottom: 10px;
-    margin: 0; /* Bỏ margin */
+    margin-bottom: 10px;
 }
 
 .logo-d {
     margin-top: 10px; /* Khoảng cách trên logo */
-    width: 100px; /* Chiều rộng logo */
+    width: 250px; /* Chiều rộng logo */
 }
