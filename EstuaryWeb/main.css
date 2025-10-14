@@ -142,11 +142,10 @@ body {
     }
 }
 
-/* Phần nội dung */
+/*      Banner      */
 .container-banner{
     /* font-family: Arial, sans-serif;  */
     font-family: "IBM Plex Sans", sans-serif;
-   
     margin-bottom: 50px;
     display: flex;
     font-size: 19px;
@@ -282,7 +281,7 @@ height: 100px;
 
 .text-c {
 flex: 1; /* Đoạn văn chiếm không gian còn lại */
-color: #333;
+color: #3bb2e4;
 margin-right: 20px; /* Khoảng cách giữa đoạn văn và ô nhỏ */
 }
 
@@ -330,8 +329,8 @@ font-size: 14px;
 
 .carousel-text1{
     color: #3bb2e4;
-    float: right;
-    padding-right: 20px;
+    float: left;
+    padding-left: 30px;
 }
 
 .carousel-text2{
