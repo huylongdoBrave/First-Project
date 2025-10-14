@@ -32,22 +32,42 @@ document.getElementById('search-input').addEventListener('keypress', function (e
 });
 
 
-// let currentIndex = 0;
+// // Feature change flag
+// const flagImage = document.getElementById('flag');
 
-// function moveSlide(direction) {
-//     const slides = document.querySelector('.slides');
-//     const totalSlides = document.querySelectorAll('.slide').length;
+// const ukFlag = './static/img/ukflag.png'; 
+// const vnFlag = './static/img/vnflag.png'; 
 
-//     currentIndex += direction;
-
-//     // Kiểm tra biên
-//     if (currentIndex < 0) {
-//         currentIndex = totalSlides - 1;
-//     } else if (currentIndex >= totalSlides) {
-//         currentIndex = 0;
+// // Thêm sự kiện click cho hình ảnh
+// flagImage.addEventListener('click', function() {
+//     // Kiểm tra hình ảnh hiện tại và đổi hình
+//     if (flagImage.src.includes(ukFlag)) {
+//         flagImage.src = vnFlag; // Đổi sang cờ Việt Nam
+//     } else {
+//         flagImage.src = ukFlag; // Đổi lại sang cờ Anh
 //     }
+// });
 
-//     // Di chuyển slider
-//     const offset = -currentIndex * 100; // Tính toán độ dịch chuyển
-//     slides.style.transform = `translateX(${offset}%)`;
-// }
+
+// Lấy phần tử hình ảnh
+const flagImage = document.getElementById('flag');
+const vnFlagImage = document.getElementById('vn-flag');
+
+// Đặt đường dẫn cho các hình ảnh cờ
+const ukFlag = './static/img/ukflag.png'; // Đường dẫn đến hình cờ nước Anh
+const vnFlag = './static/img/vnflag.png'; // Đường dẫn đến hình cờ Việt Nam
+
+// Thêm sự kiện mouseover cho hình ảnh cờ Anh
+flagImage.addEventListener('mouseover', function() {
+    vnFlagImage.style.display = 'block'; // Hiện cờ Việt Nam khi rê chuột vào cờ Anh
+});
+
+// Thêm sự kiện mouseout cho hình ảnh cờ Anh
+flagImage.addEventListener('mouseout', function() {
+    vnFlagImage.style.display = 'none'; // Ẩn cờ Việt Nam khi không còn rê chuột
+});
+
+// Thêm sự kiện click cho cờ Việt Nam
+vnFlagImage.addEventListener('click', function() {
+    flagImage.src = vnFlag; // Đổi sang cờ Việt Nam
+});
