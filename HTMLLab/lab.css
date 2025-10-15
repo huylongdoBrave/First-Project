@@ -1,110 +1,45 @@
-.container {
-    font-family: Arial, sans-serif;
+body {
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
-.carousel-container {
-    position: relative;
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+.menu {
+    display: flex; /* Sử dụng Flexbox để căn giữa các option */
+    justify-content: space-around; /* Căn giữa các option */
+    padding: 10px; /* Khoảng cách bên trong menu */
+    background-color: #fff; /* Màu nền của menu */
+    position: fixed; /* Để menu luôn ở trên cùng */
+    width: 100%; /* Chiều rộng 100% */
+    top: 0; /* Căn trên cùng */
+    z-index: 1000; /* Đảm bảo menu nằm trên cùng */
 }
 
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease;
+.menu-option {
+    position: relative; /* Để đường kẻ có thể được căn chỉnh chính xác */
+    padding: 10px; /* Khoảng cách bên trong từng option */
+    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
+    color: #007BFF; /* Màu chữ */
 }
 
-.carousel-slide {
-    min-width: 33.33%; /* 3 cột */
-    width: 300px;
-    box-sizing: border-box;
-    padding: 10px;
-    text-align: center;
+/* Đường kẻ bên dưới */
+.menu-option::after {
+    content: ""; /* Tạo một phần tử giả */
+    display: block; /* Hiển thị như một khối */
+    height: 2px; /* Độ dày của đường kẻ */
+    background-color: transparent; /* Màu sắc ban đầu */
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    left: 0; /* Căn trái */
+    right: 0; /* Căn phải */
+    bottom: -5px; /* Căn dưới */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
 }
 
-.carousel-text1{
-    color: #3bb2e4;
-    float: right;
-    padding-right: 20px;
+/* Đường kẻ luôn hiển thị cho mục đang hoạt động */
+.menu-option.active::after {
+    background-color: #00BFFF; /* Màu xanh cho mục đang hoạt động */
 }
 
-.carousel-text2{
-    font-weight: bold;
-    color: #129dd8;
-    text-align: left;
-    margin-left:20px;
-}
-
-.carousel-text3{
-    text-align: left;
-    margin-left:20px;
-}
-
-.carousel-slide img {
-    width: 350px;
-    height: 150px; 
-    transition: transform 0.3s ease;
-}
-
-.carousel-slide img:hover {
-    transform: scale(1.1); 
-}
-
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: lightblue;
-    cursor: pointer;
-    z-index: 1;
-    
-}
-
-.carousel-arrow.left {
-    left: 10px;
-}
-
-.carousel-arrow.right {
-    right: 10px;
-}
-
-.dots-container {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: lightblue;
-}
-
-@media (min-width: 768px) {
-    .carousel-slide {
-        min-width: 33.33%; /* 3 cột */
-    }
-}
-
-@media (max-width: 767px) and (min-width: 480px) {
-    .carousel-slide {
-        min-width: 50%; /* 2 cột */
-    }
-}
-
-@media (max-width: 479px) {
-    .carousel-slide {
-        min-width: 100%; /* 1 cột */
-    }
+/* Đường kẻ cho các mục khác khi hover */
+.menu-option:hover::after {
+    background-color: #00BFFF; /* Màu xanh khi hover */
 }

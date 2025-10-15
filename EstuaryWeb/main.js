@@ -32,22 +32,42 @@ document.getElementById('search-input').addEventListener('keypress', function (e
 });
 
 
-// let currentIndex = 0;
+// Lấy phần tử hình ảnh
+const flagImage = document.getElementById('flag');
+const vnFlagImage = document.getElementById('vn-flag');
 
-// function moveSlide(direction) {
-//     const slides = document.querySelector('.slides');
-//     const totalSlides = document.querySelectorAll('.slide').length;
+// Đặt đường dẫn cho các hình ảnh cờ
+const ukFlag = './static/img/ukflag.png'; // Đường dẫn đến hình cờ nước Anh
+const vnFlag = './static/img/vnflag.png'; // Đường dẫn đến hình cờ Việt Nam
 
-//     currentIndex += direction;
+// Thêm sự kiện mouseover cho hình ảnh cờ Anh
+flagImage.addEventListener('mouseover', function() {
+    vnFlagImage.style.display = 'block'; // Hiện cờ Việt Nam khi rê chuột vào cờ Anh
+});
 
-//     // Kiểm tra biên
-//     if (currentIndex < 0) {
-//         currentIndex = totalSlides - 1;
-//     } else if (currentIndex >= totalSlides) {
-//         currentIndex = 0;
-//     }
+// Thêm sự kiện mouseout cho hình ảnh cờ Anh
+flagImage.addEventListener('mouseout', function() {
+    vnFlagImage.style.display = 'none'; // Ẩn cờ Việt Nam khi không còn rê chuột
+});
 
-//     // Di chuyển slider
-//     const offset = -currentIndex * 100; // Tính toán độ dịch chuyển
-//     slides.style.transform = `translateX(${offset}%)`;
-// }
+// Thêm sự kiện click cho cờ Việt Nam
+vnFlagImage.addEventListener('click', function() {
+    flagImage.src = vnFlag; // Đổi sang cờ Việt Nam
+});
+
+// Change hover menu
+const menuOptions = document.querySelectorAll('.menu-option');
+const sections = document.querySelectorAll('.menu-title-item');
+
+menuOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        // Xóa lớp active từ tất cả các option
+        menuOptions.forEach(opt => opt.classList.remove('active'));
+        // Thêm lớp active cho option được nhấp
+        option.classList.add('active');
+        // Cuộn đến phần nội dung tương ứng
+        const targetId = option.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+});

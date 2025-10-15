@@ -27,41 +27,81 @@
 //   dots[slideIndex-1].className += " active";
 // }
 
-let currentIndex = 0;
+// let currentIndex = 0;
 
-function showSlides() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.dot');
+// function showSlides() {
+//     const slides = document.querySelectorAll('.carousel-slide');
+//     const dots = document.querySelectorAll('.dot');
 
-    // Tính toán số nhóm 3 cột
-    const totalSlides = Math.ceil(slides.length / 3);
+//     // Tính toán số nhóm 3 cột
+//     const totalSlides = Math.ceil(slides.length / 3);
     
-    // Cập nhật currentIndex nếu vượt quá số nhóm
-    if (currentIndex >= totalSlides) {
-        currentIndex = 0;
-    } else if (currentIndex < 0) {
-        currentIndex = totalSlides - 1;
-    }
+//     // Cập nhật currentIndex nếu vượt quá số nhóm
+//     if (currentIndex >= totalSlides) {
+//         currentIndex = 0;
+//     } else if (currentIndex < 0) {
+//         currentIndex = totalSlides - 1;
+//     }
 
-    // Hiển thị các slide theo nhóm
-    const offset = -currentIndex * (100 / totalSlides); // Tính toán offset
-    document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+//     // Hiển thị các slide theo nhóm
+//     const offset = -currentIndex * (100 / totalSlides); // Tính toán offset
+//     document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
 
-    // Cập nhật trạng thái chấm
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
+//     // Cập nhật trạng thái chấm
+//     dots.forEach((dot, index) => {
+//         dot.classList.toggle('active', index === currentIndex);
+//     });
+// }
+
+// function moveSlide(n) {
+//     currentIndex += n;
+//     showSlides();
+// }
+
+// function currentSlide(n) {
+//     currentIndex = n;
+//     showSlides();
+// }
+
+// // Khởi động carousel
+// showSlides();
+
+// const menuOptions = document.querySelectorAll('.menu-option');
+// const sections = document.querySelectorAll('.content');
+
+// window.addEventListener('scroll', () => {
+//     let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+//     sections.forEach(section => {
+//         const sectionTop = section.offsetTop;
+//         const sectionHeight = section.offsetHeight;
+
+//         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+//             const target = section.getAttribute('id');
+//             menuOptions.forEach(option => {
+//                 option.classList.remove('active');
+//                 if (option.getAttribute('data-target') === target) {
+//                     option.classList.add('active');
+//                 }
+//             });
+//         }
+//     });
+// });
+
+
+const menuOptions = document.querySelectorAll('.menu-option');
+const sections = document.querySelectorAll('.content');
+
+menuOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        // Xóa lớp active từ tất cả các option
+        menuOptions.forEach(opt => opt.classList.remove('active'));
+        // Thêm lớp active cho option được nhấp
+        option.classList.add('active');
+
+        // Cuộn đến phần nội dung tương ứng
+        const targetId = option.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        targetSection.scrollIntoView({ behavior: 'smooth' });
     });
-}
-
-function moveSlide(n) {
-    currentIndex += n;
-    showSlides();
-}
-
-function currentSlide(n) {
-    currentIndex = n;
-    showSlides();
-}
-
-// Khởi động carousel
-showSlides();
+});

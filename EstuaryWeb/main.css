@@ -19,16 +19,16 @@ main.css
     align-items: center; /* Canh giữa theo chiều dọc */
 }
 
-.content {
-    text-align: center; /* Canh giữa nội dung bên trong */
-}
-
 /* Bố cục menu */
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 .navbar-menu {
@@ -54,32 +54,68 @@ body {
     margin-right: 100px;
 }
 
-.menu a {
+.menu img{
+    width: auto;
+    cursor: pointer;
+    margin-top: -10px;
+    padding-top: 5px;
+}
+
+#vn-flag {
+    display: none; 
+    margin-top: 10px; /* Khoảng cách giữa hai cờ */
+}
+
+/* -- */
+
+.menu-option {
+    position: relative; /* Để đường kẻ có thể được căn chỉnh chính xác */
+    padding: 10px; /* Khoảng cách bên trong từng option */
+    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
+    color: #007BFF; /* Màu chữ */
+}
+
+/* Đường kẻ bên dưới */
+.menu-option::after {
+    content: ""; /* Tạo một phần tử giả */
+    display: block; /* Hiển thị như một khối */
+    height: 4px; /* Độ dày của đường kẻ */
     text-decoration: none;
-    color: #2596be; 
-    padding: 5px 10px;
-    transition: all 0.3s ease;
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    left: 0; /* Căn trái */
+    right: 0; /* Căn phải */
+    bottom: -18px; /* Căn dưới */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
 }
 
-.menu a::after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px; /* Độ dày của đường kẻ */
-    background-color: lightblue; /* Màu của đường kẻ */
+/* Đường kẻ luôn hiển thị cho mục đang hoạt động */
+.menu-option.active::after {
+    background-color: #2529fdb6; /* Màu xanh cho mục đang hoạt động */
+}
+
+/* Đường kẻ cho các mục khác khi hover */
+.menu-option:hover::after {
+    background-color: #2529fdb6; /* Màu xanh khi hover */
+}
+
+.menu-option a:hover{
+    text-decoration: none;
+    transform: scale(0);
+}
+
+/* 
+.divine-menu{
+    height: 5px;
+    width: 10%;
+    background-color: rgb(29, 123, 163);
     position: absolute;
-    left: 0;
-    bottom: -5px; /* Khoảng cách từ chữ đến đường kẻ */
-    transform: scaleX(0); /* Ẩn đường kẻ ban đầu */
-    transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
-}
+    bottom: 10px;
+    left: 0px;
+    visibility: visible;
+    opacity: 1;
 
-.menu a:hover {
-    /* transform: scaleX(1); */
-    transform: translateY(-3px); /* Đẩy chữ lên 1 chút khi hover */
-    border-bottom: 3px solid lightblue; /* Đường kẻ nằm dưới chữ */
-    bottom: -20px;
-}
+    transform-origin: 50% 50% 0px;
+} */
 
 .search-container-menu {
     margin-left: 30px;
@@ -87,7 +123,7 @@ body {
 }
 
 .search-container-menu input {
-    padding: 5px 30px; /* Thêm padding bên trái để có chỗ cho icon */
+    padding: 10px 30px; /* Thêm padding bên trái để có chỗ cho icon */
     border: 1px solid lightgray;
     border-radius: 4px;
     width: 200px; /* Kích thước ô input */
@@ -176,16 +212,15 @@ body {
 
 @media (max-width: 1024px) {
     .column-left {
-        /* width: calc(45% - 20px);  */
-        min-width: 50%;
-
+        width: calc(45% - 20px); 
+        /* min-width: 50%; */
     }
 }
 
 @media (max-width: 768px) {
     .column-left {
-        /* width: calc(100% - 20px);  */
-        min-width: 100%;
+        width: calc(100% - 20px); 
+        /* min-width: 100%; */
         margin-left:-60px;
     }
     .img-banner{
@@ -211,6 +246,7 @@ body {
     flex-wrap: wrap; 
     justify-content: center; 
     align-items: flex-start; 
+    
 }
 
 .content-box-a {
@@ -406,7 +442,8 @@ body {
 
 .carousel-container {
     position: relative;
-    width: 80%;
+    width: 60%;
+    padding: 20px;
     margin: auto;
     margin-bottom: 40px;
     overflow: hidden;
@@ -418,30 +455,38 @@ body {
 }
 
 .carousel-slide {
-    min-width: 33.33%; 
-    width: 300px;
+    min-width: 320px; 
     box-sizing: border-box;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
 }
 
 .carousel-text1{
     color: #3bb2e4;
-    float: left;
-    padding-left: 30px;
-    margin-left:15px;
+    float: right;
+    padding-right: 15px;
+
 }
 
 .carousel-text2{
     font-weight: bold;
-    color: #129dd8;
+    color: #1d7ba3;
     text-align: left;
-    margin-left:40px;
+    margin-left:10px;
+    line-height: 1.5;
+    display: -webkit-box; /* Thiết lập để sử dụng -webkit-line-clamp */
+    -webkit-box-orient: vertical; /* Định hướng chiều dọc */
+    -webkit-line-clamp: 2; /* Giới hạn số dòng hiển thị là 3 */
+    overflow: hidden; /* Ẩn phần văn bản thừa */
+    text-overflow: ellipsis; /* Hiển thị 3 chấm (...) */
 }
 
 .carousel-text3{
     text-align: left;
-    margin-left:40px;
+    margin-left:10px;
     line-height: 1.5;
     display: -webkit-box; /* Thiết lập để sử dụng -webkit-line-clamp */
     -webkit-box-orient: vertical; /* Định hướng chiều dọc */
@@ -452,6 +497,9 @@ body {
 
 .carousel-readmore{
     position: relative;
+    color: #3bb2e4;
+    float: left;
+    margin-left: 10px;
 }
 
 .carousel-readmore:hover{
@@ -459,20 +507,24 @@ body {
 }
 
 .carousel-slide img {
-    width: 350px;
-    height: 150px; 
+    width: 320px;
+    height: 180px; 
     transition: transform 0.3s ease;
-}
+    visibility: inherit;
+    box-sizing: border-box;
+    overflow: hidden;
+}   
 
 .carousel-slide img:hover {
-    transform: scale(1.1); 
+  transform: scale(1.1);
+    overflow: hidden;
 }
 
 .carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 40px;
+    font-size: 50px;
     color: lightblue;
     cursor: pointer;
     z-index: 1;
@@ -490,7 +542,8 @@ body {
 
 .dots-container {
     text-align: center;
-    margin-top: 10px;
+    margin-top: -70px;
+    margin-bottom: 20px;
 }
 
 .dot {
@@ -498,7 +551,7 @@ body {
     width: 10px;
     height: 10px;
     margin: 0 5px;
-    background-color: #bbb;
+    background-color: #bbbbbb;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -569,4 +622,16 @@ body {
 .logo-d {
     margin-top: 10px;
     width: 250px; 
+}
+
+@media (max-width: 768px) {
+    .footer-d {
+       flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-d {
+        flex-direction: column;
+    }
 }

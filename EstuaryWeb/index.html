@@ -34,23 +34,25 @@
         <span class="bar"></span>
     </div>
     <div class="menu" id="menu">
-            <a href="#option1">About us</a>
-            <a href="#option2">Our solutions</a>
-            <a href="#option3">News</a>
+        <a href="#option1"><div class="menu-option active" data-target="option1">About us</div></a>
+        <a href="#option2"><div class="menu-option" data-target="option2">Our solutions</div></a> 
+        <a href="#option3"><div class="menu-option" data-target="option3">News</div></a>
         <div class="search-container-menu">
-            <input type="text" placeholder="Search  ">
+            <input type="text" placeholder="Search">
             <span class="search-icon-menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.397l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.742.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
                 </svg>
             </span>
         </div>
+            <span><img id="flag" src="./static/img/ukflag.png" alt="Cờ Anh"></span>
+            <span><img id="vn-flag" src="./static/img/vnflag.png" alt="Cờ Việt Nam"></span>
     </div>
 </nav>
 
 <!-- Nội dung Banner -->
 
-<div class="container-banner" id="option1">
+<div class="container-banner menu-title-item" id="option1">
     <div class="column-left">
         <div class="content-text">
         <h2>Disruptive Solutions</h2>
@@ -68,7 +70,7 @@
 
 <div class="mega-container-a">
 <h2 style="color: #29abe2; margin: 100px 150px 20px; font-size: 26px;">Our Solutions</h2>
-<div class="container-content-a" id="option2">
+<div class="container-content-a menu-title-item" id="option2">
     <div class="content-box-a">
         <h2 class="title-a">Salesforce Automation & CRM <br> (SaleX)</h2>
         <div class="divider-a"></div>
@@ -149,7 +151,7 @@
             loop
             ></dotlottie-wc>
         </div>
-       <div class="view-box-a">
+        <div class="view-box-a">
             <span>View Details</span>
             <span class="arrow-a">&#8594;</span>
         </div>  
@@ -215,76 +217,72 @@
 </div>
 
 <!-- slider -->
-<h2 id="option3" style="color: #29abe2;margin-bottom: 30px; margin-left: 180px; font-size: 26px;">News</h2><br>
-<div class="carousel-container">
+<h2 class="menu-title-item" id="option3" style="color: #29abe2;margin-bottom: 10px; margin-left: 360px; font-size: 26px;">News</h2><br>
+<div style="align-items: center;" class="carousel-container">
         <div class="carousel-arrow left" onclick="moveSlide(-1)">&#10094;</div>
         <div class="carousel">
             <div class="carousel-slide">
-                <p class="carousel-text1">05 December 2024</p>
+                <p class="carousel-text1">05 December 2025</p>
                 <img src="./static/img/slide1.png" alt="Image 1">
                 <p class="carousel-text2">Building Loyalty Beyond the Walls: Painting a New Future with EngageX</p>
                 <p class="carousel-text3">- Thousands of users after 6 months of launch
                     - A thriving community of contractors & painters 
                     - 2x stronger communication efficiency</p>
                 <div class="carousel-readmore">
-                    <a class="carousel-text1 carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
+                    <a>Read more <span class="arrow-a">&#8594;</span></a>
                 </div>
             </div>
             <div class="carousel-slide">
-                <p class="carousel-text1">05 December 2024</p>
+                <p class="carousel-text1">05 December 2025</p>
                 <img src="./static/img/slide2.png" alt="Image 1">
                 <p class="carousel-text2">“Fun Snack World” – Refreshing a Leading Vietnamese Snack Brand with EngageX Consumer</p>
                 <p class="carousel-text3"> The “Fun Snack World” campaign showcases how a strategic blend of gamification, technology, and consumer insight can transform a brand challenge into a business opportunity.</p>
-                <a class="carousel-text1 carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
+                <a class="carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
             </div>
             <div class="carousel-slide">
-                <p class="carousel-text1">05 December 2024</p>
+                <p class="carousel-text1">05 December 2025</p>
                 <img src="./static/img/slide3.png" alt="Image 1">   
                 <p class="carousel-text2">How a Milk Brand Captured 1M+ <br>Engagements</p>
                 <p class="carousel-text3">By turning every product into a gateway for digital interaction, the brand re-established relevance and loyalty in a crowded market — and laid the foundation for future, data-driven growth. </p>
-                <a class="carousel-text1 carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
+                <a class="carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
             </div>
             <div class="carousel-slide">
-                <p class="carousel-text1">05 December 2024</p>
+                <p class="carousel-text1">05 December 2025</p>
                 <img src="./static/img/slide1.png" alt="Image 1">   
                 <p class="carousel-text2">Building Loyalty Beyond the Walls: Painting a New Future with EngageX</p>
                 <p class="carousel-text3">- Thousands of users after 6 months of launch
                     - A thriving community of contractors & painters 
                     - 2x stronger communication efficiency </p>
-                <a class="carousel-text1 carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
+                <a class=" carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
             </div>
             <div class="carousel-slide">
-                <p class="carousel-text1">05 December 2024</p>
+                <p class="carousel-text1">05 December 2025</p>
                 <img src="./static/img/slide2.png" alt="Image 1">   
                 <p class="carousel-text2">“Fun Snack World” – Refreshing a Leading Vietnamese Snack Brand with EngageX Consumer</p>
                 <p class="carousel-text3"> The “Fun Snack World” campaign showcases how a strategic blend of gamification, technology, and consumer insight can transform a brand challenge into a business opportunity. </p>
-                <a class="carousel-text1 carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
+                <a class=" carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
             </div>
             <div class="carousel-slide">
-                <p class="carousel-text1">05 December 2024</p>
+                <p class="carousel-text1">05 December 2025</p>
                 <img src="./static/img/slide3.png" alt="Image 1">   
                 <p class="carousel-text2">How a Milk Brand Captured 1M+ Engagements</p>
                 <p class="carousel-text3">By turning every product into a gateway for digital interaction, the brand re-established relevance and loyalty in a crowded market — and laid the foundation for future, data-driven growth.  </p>
-                <div>
-                    <a class="carousel-text1 ">Read more <span class="arrow-a">&#8594;</span></a>
-                </div>
+                    <a class="carousel-readmore ">Read more <span class="arrow-a">&#8594;</span></a>
             </div>
             <div class="carousel-slide">
-                <p class="carousel-text1">05 December 2024</p>
+                <p class="carousel-text1">05 December 2025</p>
                 <img src="./static/img/slide1.png" alt="Image 1">
                 <p class="carousel-text2">Building Loyalty Beyond the Walls: Painting a New Future with EngageX</p>
                 <p class="carousel-text3">- Thousands of users after 6 months of launch
                     - A thriving community of contractors & painters 
                     - 2x stronger communication efficiency</p><br>
-                <div class="carousel-readmore">
-                    <a class="carousel-text1 carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
-                </div>
+                    <a class="carousel-readmore">Read more <span class="arrow-a">&#8594;</span></a>
             </div>
 
         </div>
         <div class="carousel-arrow right" onclick="moveSlide(1)">&#10095;</div>
-</div>
 
+</div>
     <div class="dots-container">
         <span class="dot" onclick="currentSlide(0)"></span>
         <span class="dot" onclick="currentSlide(1)"></span>
