@@ -40,7 +40,7 @@ html{
     position: sticky;
     top: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index:100;
+    z-index: 100;
 }
 
 .logo-menu {
@@ -175,6 +175,7 @@ margin-top:10px;
         flex-direction: column; /* cho menu theo chiều dọc */
         align-items: center;
         width: 100%;
+        height: auto;
         position: absolute;
         top: 60px; /* Đặt menu dưới navbar */
         left: 0;
@@ -474,40 +475,24 @@ margin-top:10px;
 
 .carousel-container {
     position: relative;
-    width: 60%;
-    padding: 20px;
-    margin: auto;
-    margin-bottom: 40px;
-    overflow: hidden;
+
 }
 
 .carousel {
-    display: flex;
-    transition: transform 0.5s ease;
+position: relative; overflow: hidden;
 }
 
 .carousel-slide {
-    min-width: 320px; 
-    box-sizing: border-box;
-    padding: 20px;
-    text-align: center;
-    flex: 1;
-    overflow: hidden;
-    position: relative;
+width: 100%; display: none; overflow: hidden;
 }
 
 .carousel-slide img {
-    max-width: 100%;
-    height: auto; 
-    transition: transform 0.3s ease;
-    visibility: inherit;
-    overflow: hidden;
-    
+width:100%; height:100%; object-fit:cover; transition: transform .3s; 
 }   
 
 .carousel-slide img:hover {
-    transform: scale(1.1);
-    overflow: hidden;
+    transform: scale(1.08);
+    
 }
 
 .carousel-text1{
@@ -667,5 +652,4 @@ margin-top:10px;
     .footer-d {
         flex-direction: column;
     }
-
 }

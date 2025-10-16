@@ -146,31 +146,28 @@
 
 // // Khởi động carousel
 // showSlides();
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const arrows = document.querySelectorAll('.carousel-arrow');
+    if (!slides.length) return;
 
-document.addEventListener('DOMContentLoaded', function() {
-    const currentFlag = document.getElementById('currentFlag');
-    const dropdownContent = document.getElementById('dropdownContent');
-    const vnFlag = document.getElementById('vnFlag');
+    let current = 0;
+    function showSlide(n) {
+        current = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => s.style.display = (i === current) ? 'block' : 'none');
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
 
-    // Thiết lập biến để theo dõi trạng thái cờ hiện tại
-    let isUKFlag = true; // Bắt đầu với cờ UK
+    // expose (nếu vẫn dùng onclick inline)
+    window.currentSlide = showSlide;
+    window.moveSlide = function (dir) { showSlide(current + dir); };
 
-    // Sự kiện khi nhấn vào cờ hiện tại
-    currentFlag.addEventListener('click', function() {
-        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block'; // Chuyển đổi hiển thị dropdown
-    });
+    // events
+    dots.forEach(d => d.addEventListener('click', () => showSlide(Number(d.dataset.index))));
+    arrows.forEach(a => a.addEventListener('click', () => {
+        showSlide(current + (a.dataset.direction === 'next' ? 1 : -1));
+    }));
 
-    // Sự kiện khi nhấn vào cờ Việt Nam
-    vnFlag.addEventListener('click', function() {
-        currentFlag.src = isUKFlag ? vnFlag.src : 'uk-flag.png'; // Đổi cờ hiện tại
-        isUKFlag = !isUKFlag; // Chuyển đổi trạng thái cờ
-        dropdownContent.style.display = 'none'; // Ẩn dropdown sau khi chọn
-    });
-
-    // Ẩn dropdown khi nhấn ra ngoài
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.flag-dropdown')) {
-            dropdownContent.style.display = 'none'; // Ẩn dropdown khi nhấn ra ngoài
-        }
-    });
+    showSlide(0);
 });

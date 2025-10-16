@@ -1,31 +1,22 @@
-.flag-dropdown {
+
+.carousel-container {
     position: relative;
-    display: inline-block;
-    cursor: pointer;
+
 }
 
-.current-flag {
-    width: 50px; /* Kích thước của cờ hiện tại */
-    height: auto;
-    transition: transform 0.3s ease;
+.carousel {
+position: relative; overflow: hidden;
 }
 
-.dropdown-content {
-    display: none; /* Ẩn nội dung dropdown ban đầu */
-    position: absolute;
-    z-index: 1;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
+.carousel-slide {
+width: 100%; display: none; overflow: hidden;
 }
 
-.dropdown-flag {
-    width: 50px; /* Kích thước của cờ trong dropdown */
-    height: auto;
-    padding: 5px;
-}
+.carousel-slide img {
+width:100%; height:100%; object-fit:cover; transition: transform .3s; 
+}   
 
-.flag-dropdown:hover .dropdown-content {
-    display: block; /* Hiển thị nội dung dropdown khi hover */
+.carousel-slide img:hover {
+    transform: scale(1.08);
+    
 }
