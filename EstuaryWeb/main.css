@@ -68,39 +68,33 @@ html{
 
 /* -- */
 
-.menu-option {
-    position: relative; /* Để đường kẻ có thể được căn chỉnh chính xác */
-    padding: 10px; /* Khoảng cách bên trong từng option */
-    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
-    color: #007BFF; /* Màu chữ */
-}
 
-/* Đường kẻ bên dưới */
-.menu-option::after {
-    content: ""; /* Tạo một phần tử giả */
-    display: block; /* Hiển thị như một khối */
-    height: 4px; /* Độ dày của đường kẻ */
+.menu a {
     text-decoration: none;
-    position: absolute; /* Đặt vị trí tuyệt đối */
-    left: 0; /* Căn trái */
-    right: 0; /* Căn phải */
-    bottom: -18px; /* Căn dưới */
-    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
+    color: #2596be; 
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    
 }
 
-/* Đường kẻ luôn hiển thị cho mục đang hoạt động */
-.menu-option.active::after {
-    background-color: #2529fdb6; /* Màu xanh cho mục đang hoạt động */
+.menu a::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px; /* Độ dày của đường kẻ */
+    background-color: lightblue; /* Màu của đường kẻ */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Khoảng cách từ chữ đến đường kẻ */
+    transform: scaleX(0); /* Ẩn đường kẻ ban đầu */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
 }
 
-/* Đường kẻ cho các mục khác khi hover */
-.menu-option:hover::after {
-    background-color: #2529fdb6; /* Màu xanh khi hover */
-}
-
-.menu-option a:hover{
-    text-decoration: none;
-    transform: scale(0);
+.menu a:hover {
+    /* transform: scaleX(1); */
+    transform: translateY(-3px); /* Đẩy chữ lên 1 chút khi hover */
+    border-bottom: 3px solid lightblue; /* Đường kẻ nằm dưới chữ */
+    bottom: -20px;
 }
 
 /* 
@@ -149,7 +143,6 @@ html{
     background-color: black;
     margin: 3px 0;
 }
-
 
 @media (max-width: 768px) {
     .menu {
@@ -464,6 +457,19 @@ html{
     position: relative;
 }
 
+.carousel-slide img {
+    max-width: 100%;
+    height: auto; 
+    transition: transform 0.3s ease;
+    visibility: inherit;
+    overflow: hidden;
+}   
+
+.carousel-slide img:hover {
+    transform: scale(1.1);
+    overflow: hidden;
+}
+
 .carousel-text1{
     color: #3bb2e4;
     float: right;
@@ -506,20 +512,6 @@ html{
     color: rgb(39, 57, 223); 
 }
 
-.carousel-slide img {
-    width: 320px;
-    height: 180px; 
-    transition: transform 0.3s ease;
-    visibility: inherit;
-    box-sizing: border-box;
-    overflow: hidden;
-}   
-
-.carousel-slide img:hover {
-  transform: scale(1.1);
-    overflow: hidden;
-}
-
 .carousel-arrow {
     position: absolute;
     top: 50%;
@@ -560,23 +552,24 @@ html{
     background-color: lightblue;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
     .carousel-slide {
-        min-width: 33.33%; /* 3 cột */
+        min-width: 33.33%; 
     }
 }
 
-@media (max-width: 767px) and (min-width: 480px) {
+@media (max-width: 1024px) and (min-width: 768px) {
     .carousel-slide {
-        min-width: 50%; /* 2 cột */
+        min-width: 50%;
     }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
     .carousel-slide {
-        min-width: 100%; /* 1 cột */
+        min-width: 100%; 
     }
 }
+
 
 /* end footer */
 .custom-body-d {

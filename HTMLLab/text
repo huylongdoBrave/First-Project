@@ -1,5 +1,42 @@
 * {box-sizing:border-box}
 
+
+
+.menu-option {
+    position: relative; /* Để đường kẻ có thể được căn chỉnh chính xác */
+    padding: 10px; /* Khoảng cách bên trong từng option */
+    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
+    color: #007BFF; /* Màu chữ */
+}
+
+/* Đường kẻ bên dưới */
+.menu-option::after {
+    content: ""; /* Tạo một phần tử giả */
+    display: block; /* Hiển thị như một khối */
+    height: 4px; /* Độ dày của đường kẻ */
+    text-decoration: none;
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    left: 0; /* Căn trái */
+    right: 0; /* Căn phải */
+    bottom: -18px; /* Căn dưới */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+/* Đường kẻ luôn hiển thị cho mục đang hoạt động */
+.menu-option.active::after {
+    background-color: #2529fdb6; /* Màu xanh cho mục đang hoạt động */
+}
+
+/* Đường kẻ cho các mục khác khi hover */
+.menu-option:hover::after {
+    background-color: #2529fdb6; /* Màu xanh khi hover */
+}
+
+.menu-option a:hover{
+    text-decoration: none;
+    transform: scale(0);
+}
+
 /* menu */
 
 .menu a {

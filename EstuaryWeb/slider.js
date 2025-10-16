@@ -28,12 +28,12 @@ function showSlides() {
 
 function moveSlide(n) {
     currentIndex += n;
-    showSlides();
+    showSlides(n);
 }
 
 function currentSlide(n) {
     currentIndex = n;
-    showSlides();
+    showSlides(n);
 }
 
 // Khởi động carousel

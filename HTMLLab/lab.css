@@ -3,43 +3,139 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.menu {
-    display: flex; /* Sử dụng Flexbox để căn giữa các option */
-    justify-content: space-around; /* Căn giữa các option */
-    padding: 10px; /* Khoảng cách bên trong menu */
-    background-color: #fff; /* Màu nền của menu */
-    position: fixed; /* Để menu luôn ở trên cùng */
-    width: 100%; /* Chiều rộng 100% */
-    top: 0; /* Căn trên cùng */
-    z-index: 1000; /* Đảm bảo menu nằm trên cùng */
+.carousel-container {
+    position: relative;
+    width: 60%;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 40px;
+    overflow: hidden;
 }
 
-.menu-option {
-    position: relative; /* Để đường kẻ có thể được căn chỉnh chính xác */
-    padding: 10px; /* Khoảng cách bên trong từng option */
-    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
-    color: #007BFF; /* Màu chữ */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
-/* Đường kẻ bên dưới */
-.menu-option::after {
-    content: ""; /* Tạo một phần tử giả */
-    display: block; /* Hiển thị như một khối */
-    height: 2px; /* Độ dày của đường kẻ */
-    background-color: transparent; /* Màu sắc ban đầu */
-    position: absolute; /* Đặt vị trí tuyệt đối */
-    left: 0; /* Căn trái */
-    right: 0; /* Căn phải */
-    bottom: -5px; /* Căn dưới */
-    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
+.carousel-slide {
+    min-width: 320px; 
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Đường kẻ luôn hiển thị cho mục đang hoạt động */
-.menu-option.active::after {
-    background-color: #00BFFF; /* Màu xanh cho mục đang hoạt động */
+.carousel-slide img {
+    max-width: 100%;
+    height: auto; 
+    transition: transform 0.3s ease;
+    visibility: inherit;
+    overflow: hidden;
+}   
+
+.carousel-slide img:hover {
+  transform: scale(1.1);
+overflow: hidden;
 }
 
-/* Đường kẻ cho các mục khác khi hover */
-.menu-option:hover::after {
-    background-color: #00BFFF; /* Màu xanh khi hover */
+.carousel-text1{
+    color: #3bb2e4;
+    float: right;
+    padding-right: 15px;
+
+}
+
+.carousel-text2{
+    font-weight: bold;
+    color: #1d7ba3;
+    text-align: left;
+    margin-left:10px;
+    line-height: 1.5;
+    display: -webkit-box; /* Thiết lập để sử dụng -webkit-line-clamp */
+    -webkit-box-orient: vertical; /* Định hướng chiều dọc */
+    -webkit-line-clamp: 2; /* Giới hạn số dòng hiển thị là 3 */
+    overflow: hidden; /* Ẩn phần văn bản thừa */
+    text-overflow: ellipsis; /* Hiển thị 3 chấm (...) */
+}
+
+.carousel-text3{
+    text-align: left;
+    margin-left:10px;
+    line-height: 1.5;
+    display: -webkit-box; /* Thiết lập để sử dụng -webkit-line-clamp */
+    -webkit-box-orient: vertical; /* Định hướng chiều dọc */
+    -webkit-line-clamp: 3; /* Giới hạn số dòng hiển thị là 3 */
+    overflow: hidden; /* Ẩn phần văn bản thừa */
+    text-overflow: ellipsis; /* Hiển thị 3 chấm (...) */
+}
+
+.carousel-readmore{
+    position: relative;
+    color: #3bb2e4;
+    float: left;
+    margin-left: 10px;
+}
+
+.carousel-readmore:hover{
+    color: rgb(39, 57, 223); 
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: lightblue;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-arrow.left {
+    left: 10px;
+    margin-left: -10px;
+}
+
+.carousel-arrow.right {
+    right: 10px;
+    margin-right: -10px;
+}
+
+.dots-container {
+    text-align: center;
+    margin-top: -70px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbbbbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: lightblue;
+}
+
+@media (min-width: 1025px) {
+    .carousel-slide {
+        min-width: 33.33%; 
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .carousel-slide {
+        min-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-slide {
+        min-width: 100%; 
+    }
 }
