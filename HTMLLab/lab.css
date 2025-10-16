@@ -1,141 +1,31 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.carousel-container {
+.flag-dropdown {
     position: relative;
-    width: 60%;
-    padding: 20px;
-    margin: auto;
-    margin-bottom: 40px;
-    overflow: hidden;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.carousel-slide {
-    min-width: 320px; 
-    box-sizing: border-box;
-    padding: 20px;
-    text-align: center;
-    flex: 1;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-slide img {
-    max-width: 100%;
-    height: auto; 
-    transition: transform 0.3s ease;
-    visibility: inherit;
-    overflow: hidden;
-}   
-
-.carousel-slide img:hover {
-  transform: scale(1.1);
-overflow: hidden;
-}
-
-.carousel-text1{
-    color: #3bb2e4;
-    float: right;
-    padding-right: 15px;
-
-}
-
-.carousel-text2{
-    font-weight: bold;
-    color: #1d7ba3;
-    text-align: left;
-    margin-left:10px;
-    line-height: 1.5;
-    display: -webkit-box; /* Thiết lập để sử dụng -webkit-line-clamp */
-    -webkit-box-orient: vertical; /* Định hướng chiều dọc */
-    -webkit-line-clamp: 2; /* Giới hạn số dòng hiển thị là 3 */
-    overflow: hidden; /* Ẩn phần văn bản thừa */
-    text-overflow: ellipsis; /* Hiển thị 3 chấm (...) */
-}
-
-.carousel-text3{
-    text-align: left;
-    margin-left:10px;
-    line-height: 1.5;
-    display: -webkit-box; /* Thiết lập để sử dụng -webkit-line-clamp */
-    -webkit-box-orient: vertical; /* Định hướng chiều dọc */
-    -webkit-line-clamp: 3; /* Giới hạn số dòng hiển thị là 3 */
-    overflow: hidden; /* Ẩn phần văn bản thừa */
-    text-overflow: ellipsis; /* Hiển thị 3 chấm (...) */
-}
-
-.carousel-readmore{
-    position: relative;
-    color: #3bb2e4;
-    float: left;
-    margin-left: 10px;
-}
-
-.carousel-readmore:hover{
-    color: rgb(39, 57, 223); 
-}
-
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 50px;
-    color: lightblue;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.carousel-arrow.left {
-    left: 10px;
-    margin-left: -10px;
-}
-
-.carousel-arrow.right {
-    right: 10px;
-    margin-right: -10px;
-}
-
-.dots-container {
-    text-align: center;
-    margin-top: -70px;
-    margin-bottom: 20px;
-}
-
-.dot {
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #bbbbbb;
-    border-radius: 50%;
     cursor: pointer;
 }
 
-.dot.active {
-    background-color: lightblue;
+.current-flag {
+    width: 50px; /* Kích thước của cờ hiện tại */
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
-@media (min-width: 1025px) {
-    .carousel-slide {
-        min-width: 33.33%; 
-    }
+.dropdown-content {
+    display: none; /* Ẩn nội dung dropdown ban đầu */
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
 }
 
-@media (max-width: 1024px) and (min-width: 768px) {
-    .carousel-slide {
-        min-width: 50%;
-    }
+.dropdown-flag {
+    width: 50px; /* Kích thước của cờ trong dropdown */
+    height: auto;
+    padding: 5px;
 }
 
-@media (max-width: 767px) {
-    .carousel-slide {
-        min-width: 100%; 
-    }
+.flag-dropdown:hover .dropdown-content {
+    display: block; /* Hiển thị nội dung dropdown khi hover */
 }

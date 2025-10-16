@@ -34,19 +34,23 @@
         <span class="bar"></span>
     </div>
     <div class="menu" id="menu">
-        <a href="#option1"><div class="menu-option active" data-target="option1">About us</div></a>
-        <a href="#option2"><div class="menu-option" data-target="option2">Our solutions</div></a> 
-        <a href="#option3"><div class="menu-option" data-target="option3">News</div></a>
+        <a class="active" href="#option1"><div class="menu-option active" data-target="option1">About us</div></a>
+        <a  href="#option2"><div class="menu-option" data-target="option2">Our solutions</div></a> 
+        <a  href="#option3"><div class="menu-option" data-target="option3">News</div></a>
         <div class="search-container-menu">
-            <input type="text" placeholder="Search">
+            <input id="search-input" type="text" placeholder="Search">
             <span class="search-icon-menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.397l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.742.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
                 </svg>
             </span>
         </div>
-            <span><img id="flag" src="./static/img/ukflag.png" alt="Cờ Anh"></span>
-            <span><img id="vn-flag" src="./static/img/vnflag.png" alt="Cờ Việt Nam"></span>
+        <div class="flag-dropdown">
+            <img src="./static/img/ukflag.png" alt="UK Flag" class="current-flag" id="currentFlag">
+            <div class="dropdown-content-flag" id="dropdownContent">
+                <img src="./static/img/vnflag.png" alt="Vietnam Flag" class="dropdown-flag" id="vnFlag">
+            </div>
+        </div>
     </div>
 </nav>
 
@@ -54,7 +58,7 @@
 
 <div class="container-banner menu-title-item" id="option1">
     <div class="column-left">
-        <div class="content-text">
+        <div class="content-banner-text">
         <h2>Disruptive Solutions</h2>
         <p>Estuary is a <span style="color: #29abe2;font-weight: bold;">SalesTech </span>company from Vietnam specializing in Sales-Enabling platforms.</p>
         <p>Estuary helps multinational companies and leading local enterprises in Asia Pacific significantly enhance engagements with stakeholders across their distribution channels, acquire extra insights in real-time, and ultimately boost sales performance, as far-reaching as sell-out.</p>
@@ -197,7 +201,7 @@
  </div>
 </div>
 
-<!-- Ô text nhỏ -->
+<!-- small text nhỏ -->
 <div class="body-container-c">
     <div class="main-box-c">
     <div class="text-c" style="text-align:center;">
@@ -217,8 +221,8 @@
 </div>
 
 <!-- slider -->
-<h2 class="menu-title-item" id="option3" style="color: #29abe2;margin-bottom: 10px; margin-left: 360px; font-size: 26px;">News</h2><br>
-<div style="align-items: center;" class="carousel-container">
+<h2 class="menu-title-item" style="color: #29abe2;margin-bottom: 10px; margin-left: 360px; font-size: 26px;">News</h2><br>
+<div id="option3" style="align-items: center;" class="carousel-container">
         <div class="carousel-arrow left" onclick="moveSlide(-1)">&#10094;</div>
         <div class="carousel">
             <div class="carousel-slide">

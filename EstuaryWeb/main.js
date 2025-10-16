@@ -32,31 +32,37 @@ document.getElementById('search-input').addEventListener('keypress', function (e
 });
 
 
-// Lấy phần tử hình ảnh
-const flagImage = document.getElementById('flag');
-const vnFlagImage = document.getElementById('vn-flag');
+// Event cờ
+document.addEventListener('DOMContentLoaded', function() {
+    const currentFlag = document.getElementById('currentFlag');
+    const dropdownContent = document.getElementById('dropdownContent');
+    const vnFlag = document.getElementById('vnFlag');
 
-// Đặt đường dẫn cho các hình ảnh cờ
-const ukFlag = './static/img/ukflag.png'; // Đường dẫn đến hình cờ nước Anh
-const vnFlag = './static/img/vnflag.png'; // Đường dẫn đến hình cờ Việt Nam
+    // Thiết lập biến để theo dõi trạng thái cờ hiện tại
+    let isUKFlag = true; 
 
-// Thêm sự kiện mouseover cho hình ảnh cờ Anh
-flagImage.addEventListener('mouseover', function() {
-    vnFlagImage.style.display = 'block'; // Hiện cờ Việt Nam khi rê chuột vào cờ Anh
-});
+    // Sự kiện khi nhấn vào cờ hiện tại
+    currentFlag.addEventListener('click', function() {
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block'; // Chuyển đổi hiển thị dropdown
+    });
 
-// Thêm sự kiện mouseout cho hình ảnh cờ Anh
-flagImage.addEventListener('mouseout', function() {
-    vnFlagImage.style.display = 'none'; // Ẩn cờ Việt Nam khi không còn rê chuột
-});
+    // Sự kiện khi nhấn vào cờ Việt Nam
+    vnFlag.addEventListener('click', function() {
+        currentFlag.src = isUKFlag ? vnFlag.src : 'uk-flag.png'; // Đổi cờ hiện tại
+        isUKFlag = !isUKFlag; // Chuyển đổi trạng thái cờ
+        dropdownContent.style.display = 'none'; // Ẩn dropdown sau khi chọn
+    });
 
-// Thêm sự kiện click cho cờ Việt Nam
-vnFlagImage.addEventListener('click', function() {
-    flagImage.src = vnFlag; // Đổi sang cờ Việt Nam
+    // Ẩn dropdown khi nhấn ra ngoài
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.flag-dropdown')) {
+            dropdownContent.style.display = 'none'; // Ẩn dropdown khi nhấn ra ngoài
+        }
+    });
 });
 
 // Change hover menu
-const menuOptions = document.querySelectorAll('.menu-option');
+/* const menuOptions = document.querySelectorAll('.menu-option');
 const sections = document.querySelectorAll('.menu-title-item');
 
 menuOptions.forEach(option => {
@@ -69,5 +75,33 @@ menuOptions.forEach(option => {
         const targetId = option.getAttribute('data-target');
         const targetSection = document.getElementById(targetId);
         targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+}); */
+
+document.addEventListener('scroll', function() {
+    const sections = [
+        { id: 'option1', menuIndex: 0 },
+        { id: 'option2', menuIndex: 1 },
+        { id: 'option3', menuIndex: 2 }
+    ];
+    const menuLinks = document.querySelectorAll('.menu a');
+    let current = 0;
+
+    sections.forEach((section, idx) => {
+        const el = document.getElementById(section.id);
+        if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 80 && rect.bottom > 80) {
+                current = idx;
+            }
+        }
+    });
+
+    menuLinks.forEach((link, idx) => {
+        if (idx === current) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
     });
 });
