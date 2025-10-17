@@ -1,22 +1,141 @@
+/* UI Contact Button */
+#contact-ui {
+    position: fixed;
+    bottom: 40px;
+    right: 0px;
+    z-index: 999;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.carousel-container {
+.arrow-up-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+/*     margin-bottom: -22px; Đẩy mũi tên sát lên trên box chữ nhật */
+    z-index: 2;
+}
+
+.arrow-up {
+    background: #fff;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #504949;
+    box-shadow: 0 2px 8px #0001;
     position: relative;
+    z-index: 2;
+    margin: 0 0 60px 100px;
+    /* Hiệu ứng xoay khi scroll */
+    transition: transform 0.1s linear;
+    transform: rotate(var(--rotate, 0deg));
 
 }
 
-.carousel {
-position: relative; overflow: hidden;
+.contact-rect {
+    width: 200px;
+    height: 90px;
+    background: #fff;
+    /* border-radius: 18px; */
+    box-shadow: 0 4px 16px #0002;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: box-shadow 0.3s;
+    overflow: hidden;
+    padding-top: 10px; /* Thêm khoảng đệm để không bị mũi tên che */
 }
 
-.carousel-slide {
-width: 100%; display: none; overflow: hidden;
+.contact-img {
+    width: 40px;
+    height: 40px;
+    z-index: 2;
 }
 
-.carousel-slide img {
-width:100%; height:100%; object-fit:cover; transition: transform .3s; 
-}   
+.contact-rect-text {
+    margin-top: 6px;
+    font-size: 18px;
+    color: #2596be;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
 
-.carousel-slide img:hover {
-    transform: scale(1.08);
-    
+/* Contact Popup */
+.contact-popup {
+    position: fixed;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    max-width: 600px;
+    background: #fff;
+    /* border-radius: 10px; */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.contact-popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -45%);
+}
+
+.contact-popup-header {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 2;
+}
+
+.close-popup {
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-popup:hover {
+    color: #000;
+}
+
+.contact-popup-content {
+    display: flex;
+    width: 100%;
+}
+
+.contact-popup-left,
+.contact-popup-right {
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    min-height: 90px;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.contact-popup-left {
+    background-color: #2596be;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.contact-popup-right {
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    border: #2596be solid 1px;
 }

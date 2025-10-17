@@ -144,30 +144,42 @@
 //     showSlides();
 // }
 
-// // Khởi động carousel
-// showSlides();
-document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = Array.from(document.querySelectorAll('.dot'));
-    const arrows = document.querySelectorAll('.carousel-arrow');
-    if (!slides.length) return;
+// ...existing code...
 
-    let current = 0;
-    function showSlide(n) {
-        current = (n + slides.length) % slides.length;
-        slides.forEach((s, i) => s.style.display = (i === current) ? 'block' : 'none');
-        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+// ...existing code...
+document.addEventListener('DOMContentLoaded', function() {
+    const contactUI = document.getElementById('contact-ui');
+    const contactPopup = document.getElementById('contact-popup');
+    const closeContactPopup = document.getElementById('closeContactPopup');
+    const contactCircle = document.querySelector('.contact-circle');
+    const arrowUp = document.querySelector('.arrow-up');
+    
+    // Hiệu ứng xoay mũi tên khi scroll
+    if (arrowUp) {
+        window.addEventListener('scroll', function() {
+            // Tính toán phần trăm đã cuộn của trang
+            const percent = Math.min(1, window.scrollY / (document.body.scrollHeight - window.innerHeight));
+            // Cập nhật biến CSS '--rotate' để xoay mũi tên
+            arrowUp.style.setProperty('--rotate', `${percent * 360}deg`);
+        });
     }
 
-    // expose (nếu vẫn dùng onclick inline)
-    window.currentSlide = showSlide;
-    window.moveSlide = function (dir) { showSlide(current + dir); };
+    // Hiện popup khi click
+    if (contactUI && contactPopup) {
+        contactUI.addEventListener('click', function() {
+            contactPopup.classList.remove('hidden');
+        });
+    }
 
-    // events
-    dots.forEach(d => d.addEventListener('click', () => showSlide(Number(d.dataset.index))));
-    arrows.forEach(a => a.addEventListener('click', () => {
-        showSlide(current + (a.dataset.direction === 'next' ? 1 : -1));
-    }));
-
-    showSlide(0);
+    // Đóng popup khi click dấu X
+    if (closeContactPopup && contactPopup) {
+        closeContactPopup.addEventListener('click', function() {
+            contactPopup.classList.add('hidden');
+        });
+    }
 });
+
+// ...existing code...
+
+
+

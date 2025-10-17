@@ -141,3 +141,31 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+
+// // Khởi động carousel
+// showSlides();
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const arrows = document.querySelectorAll('.carousel-arrow');
+    if (!slides.length) return;
+
+    let current = 0;
+    function showSlide(n) {
+        current = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => s.style.display = (i === current) ? 'block' : 'none');
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // expose (nếu vẫn dùng onclick inline)
+    window.currentSlide = showSlide;
+    window.moveSlide = function (dir) { showSlide(current + dir); };
+
+    // events
+    dots.forEach(d => d.addEventListener('click', () => showSlide(Number(d.dataset.index))));
+    arrows.forEach(a => a.addEventListener('click', () => {
+        showSlide(current + (a.dataset.direction === 'next' ? 1 : -1));
+    }));
+
+    showSlide(0);
+});

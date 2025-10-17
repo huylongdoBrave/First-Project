@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentFlag = document.getElementById('currentFlag');
     const dropdownContent = document.getElementById('dropdownContent');
     const vnFlag = document.getElementById('vnFlag');
+    
+    const ukFlagSrc = './static/img/ukflag.png';
+    const vnFlagSrc = './static/img/vnflag.png';
 
     // Thiết lập biến để theo dõi trạng thái cờ hiện tại
     let isUKFlag = true; 
@@ -48,10 +51,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Sự kiện khi nhấn vào cờ Việt Nam
     vnFlag.addEventListener('click', function() {
-        currentFlag.src = isUKFlag ? vnFlag.src : 'uk-flag.png'; // Đổi cờ hiện tại
-        isUKFlag = !isUKFlag; // Chuyển đổi trạng thái cờ
-        dropdownContent.style.display = 'none'; // Ẩn dropdown sau khi chọn
+        currentFlag.src = vnFlagSrc;
+        dropdownContent.style.display = 'none';
     });
+
+    // Sự kiện khi nhấn vào cờ Anh (nếu có dropdown chứa cờ Anh)
+    const ukFlag = document.getElementById('ukFlag');
+    if (ukFlag) {
+        ukFlag.addEventListener('click', function() {
+            currentFlag.src = ukFlagSrc;
+            dropdownContent.style.display = 'none';
+        });
+    }
 
     // Ẩn dropdown khi nhấn ra ngoài
     document.addEventListener('click', function(event) {
@@ -61,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Change hover menu
+// Change hover menu (type 2)
 /* const menuOptions = document.querySelectorAll('.menu-option');
 const sections = document.querySelectorAll('.menu-title-item');
 
@@ -104,4 +115,36 @@ document.addEventListener('scroll', function() {
             link.classList.remove('active');
         }
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const contactUI = document.getElementById('contact-ui');
+    const contactPopup = document.getElementById('contact-popup');
+    const closeContactPopup = document.getElementById('closeContactPopup');
+    const contactCircle = document.querySelector('.contact-circle');
+    const arrowUp = document.querySelector('.arrow-up');
+    
+    // Hiệu ứng xoay mũi tên khi scroll
+    if (arrowUp) {
+        window.addEventListener('scroll', function() {
+            // Tính toán phần trăm đã cuộn của trang
+            const percent = Math.min(1, window.scrollY / (document.body.scrollHeight - window.innerHeight));
+            // Cập nhật biến CSS '--rotate' để xoay mũi tên
+            arrowUp.style.setProperty('--rotate', `${percent * 360}deg`);
+        });
+    }
+
+    // Hiện popup khi click
+    if (contactUI && contactPopup) {
+        contactUI.addEventListener('click', function() {
+            contactPopup.classList.remove('hidden');
+        });
+    }
+
+    // Đóng popup khi click dấu X
+    if (closeContactPopup && contactPopup) {
+        closeContactPopup.addEventListener('click', function() {
+            contactPopup.classList.add('hidden');
+        });
+    }
 });
