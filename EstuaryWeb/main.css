@@ -184,8 +184,21 @@ margin-top:10px;
         padding: 10px;
     }
 
+    /* Thêm hiệu ứng phóng to chữ khi hover cho các mục menu */
+    .menu a {
+        padding: 15px 0; /* Tăng khoảng đệm để dễ bấm hơn */
+        transition: transform 0.2s ease-in-out;
+        color: white;
+        font-size: 16px;
+    }
+
+    .menu a:hover {
+        transform: scale(1.1); /* Phóng to 110% */
+    }
+
     .menu.active {
         display: flex; /* Hiện menu khi active */
+        background-color: #2596be;
     }
 
     .menu-toggle {
@@ -193,7 +206,13 @@ margin-top:10px;
     }
 
     .search-container-menu {
-        margin-top: 10px;
+        order: -1; /* Di chuyển thanh search lên đầu */
+        margin: 10px 0 20px 0; /* Căn chỉnh lại khoảng cách */
+    }
+
+    /* Ẩn mục chọn cờ khi responsive */
+    .flag-dropdown {
+        display: none;
     }
 }
 
@@ -965,3 +984,5 @@ margin-top:10px;
     font-size: 14px;
     border: #2596be solid 1px;
 }
+
+
