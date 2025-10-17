@@ -1,16 +1,69 @@
 * {box-sizing:border-box}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  display: flex;
+
+
+.menu-option {
+    position: relative; /* Để đường kẻ có thể được căn chỉnh chính xác */
+    padding: 10px; /* Khoảng cách bên trong từng option */
+    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
+    color: #007BFF; /* Màu chữ */
 }
 
-.img-slider{
-    width: 200px;
-    height: 300px;
+/* Đường kẻ bên dưới */
+.menu-option::after {
+    content: ""; /* Tạo một phần tử giả */
+    display: block; /* Hiển thị như một khối */
+    height: 4px; /* Độ dày của đường kẻ */
+    text-decoration: none;
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    left: 0; /* Căn trái */
+    right: 0; /* Căn phải */
+    bottom: -18px; /* Căn dưới */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+/* Đường kẻ luôn hiển thị cho mục đang hoạt động */
+.menu-option.active::after {
+    background-color: #2529fdb6; /* Màu xanh cho mục đang hoạt động */
+}
+
+/* Đường kẻ cho các mục khác khi hover */
+.menu-option:hover::after {
+    background-color: #2529fdb6; /* Màu xanh khi hover */
+}
+
+.menu-option a:hover{
+    text-decoration: none;
+    transform: scale(0);
+}
+
+/* menu */
+
+.menu a {
+    text-decoration: none;
+    color: #2596be; 
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.menu a::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px; /* Độ dày của đường kẻ */
+    background-color: lightblue; /* Màu của đường kẻ */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Khoảng cách từ chữ đến đường kẻ */
+    transform: scaleX(0); /* Ẩn đường kẻ ban đầu */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+.menu a:hover {
+    /* transform: scaleX(1); */
+    transform: translateY(-3px); /* Đẩy chữ lên 1 chút khi hover */
+    border-bottom: 3px solid lightblue; /* Đường kẻ nằm dưới chữ */
+    bottom: -20px;
 }
 
 /* Hide the images by default */
@@ -88,3 +141,31 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+
+// // Khởi động carousel
+// showSlides();
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const arrows = document.querySelectorAll('.carousel-arrow');
+    if (!slides.length) return;
+
+    let current = 0;
+    function showSlide(n) {
+        current = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => s.style.display = (i === current) ? 'block' : 'none');
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // expose (nếu vẫn dùng onclick inline)
+    window.currentSlide = showSlide;
+    window.moveSlide = function (dir) { showSlide(current + dir); };
+
+    // events
+    dots.forEach(d => d.addEventListener('click', () => showSlide(Number(d.dataset.index))));
+    arrows.forEach(a => a.addEventListener('click', () => {
+        showSlide(current + (a.dataset.direction === 'next' ? 1 : -1));
+    }));
+
+    showSlide(0);
+});
