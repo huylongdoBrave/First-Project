@@ -125,14 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const arrowUp = document.querySelector('.arrow-up');
     
     // Hiệu ứng xoay mũi tên khi scroll
-    if (arrowUp) {
-        window.addEventListener('scroll', function() {
-            // Tính toán phần trăm đã cuộn của trang
-            const percent = Math.min(1, window.scrollY / (document.body.scrollHeight - window.innerHeight));
-            // Cập nhật biến CSS '--rotate' để xoay mũi tên
-            arrowUp.style.setProperty('--rotate', `${percent * 360}deg`);
-        });
-    }
+    // if (arrowUp) {
+    //     window.addEventListener('scroll', function() {
+    //         // Tính toán phần trăm đã cuộn của trang
+    //         const percent = Math.min(1, window.scrollY / (document.body.scrollHeight - window.innerHeight));
+    //         // Cập nhật biến CSS '--rotate' để xoay mũi tên
+    //         arrowUp.style.setProperty('--rotate', `${percent * 360}deg`);
+    //     });
+    // }
 
     // Hiện popup khi click
     if (contactUI && contactPopup) {
