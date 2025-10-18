@@ -1,0 +1,171 @@
+* {box-sizing:border-box}
+
+
+
+.menu-option {
+    position: relative; /* Để đường kẻ có thể được căn chỉnh chính xác */
+    padding: 10px; /* Khoảng cách bên trong từng option */
+    cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
+    color: #007BFF; /* Màu chữ */
+}
+
+/* Đường kẻ bên dưới */
+.menu-option::after {
+    content: ""; /* Tạo một phần tử giả */
+    display: block; /* Hiển thị như một khối */
+    height: 4px; /* Độ dày của đường kẻ */
+    text-decoration: none;
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    left: 0; /* Căn trái */
+    right: 0; /* Căn phải */
+    bottom: -18px; /* Căn dưới */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+/* Đường kẻ luôn hiển thị cho mục đang hoạt động */
+.menu-option.active::after {
+    background-color: #2529fdb6; /* Màu xanh cho mục đang hoạt động */
+}
+
+/* Đường kẻ cho các mục khác khi hover */
+.menu-option:hover::after {
+    background-color: #2529fdb6; /* Màu xanh khi hover */
+}
+
+.menu-option a:hover{
+    text-decoration: none;
+    transform: scale(0);
+}
+
+/* menu */
+
+.menu a {
+    text-decoration: none;
+    color: #2596be; 
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.menu a::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px; /* Độ dày của đường kẻ */
+    background-color: lightblue; /* Màu của đường kẻ */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Khoảng cách từ chữ đến đường kẻ */
+    transform: scaleX(0); /* Ẩn đường kẻ ban đầu */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+.menu a:hover {
+    /* transform: scaleX(1); */
+    transform: translateY(-3px); /* Đẩy chữ lên 1 chút khi hover */
+    border-bottom: 3px solid lightblue; /* Đường kẻ nằm dưới chữ */
+    bottom: -20px;
+}
+
+/* Hide the images by default */
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+// // Khởi động carousel
+// showSlides();
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const arrows = document.querySelectorAll('.carousel-arrow');
+    if (!slides.length) return;
+
+    let current = 0;
+    function showSlide(n) {
+        current = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => s.style.display = (i === current) ? 'block' : 'none');
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // expose (nếu vẫn dùng onclick inline)
+    window.currentSlide = showSlide;
+    window.moveSlide = function (dir) { showSlide(current + dir); };
+
+    // events
+    dots.forEach(d => d.addEventListener('click', () => showSlide(Number(d.dataset.index))));
+    arrows.forEach(a => a.addEventListener('click', () => {
+        showSlide(current + (a.dataset.direction === 'next' ? 1 : -1));
+    }));
+
+    showSlide(0);
+});
