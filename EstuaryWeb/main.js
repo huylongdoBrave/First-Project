@@ -22,7 +22,6 @@ mobileMenu.addEventListener('click', () => {
 function search() {
     const query = document.getElementById('search-input').value;
     alert('Bạn đã tìm kiếm: ' + query);
-    // Thay thế alert bằng logic tìm kiếm thực tế của bạn
 }
 
 //  Enter event search
@@ -31,7 +30,6 @@ document.getElementById('search-input').addEventListener('keypress', function (e
         search();
     }
 });
-
 
 // Event cờ
 document.addEventListener('DOMContentLoaded', function() {
